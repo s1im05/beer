@@ -61,6 +61,15 @@ body {
     background: #933;
     text-align: right;    
 }
+.b-promo {
+    background: #000 url(../img/logo_white.png) 100px 20px no-repeat;
+    color: #fff;
+    padding-left: 270px;
+    padding-top: 15px; 
+    padding-bottom: 15px; 
+    padding-right: 60px;
+    font-size: 1.25em;
+}
 .b-section {
     padding-top: 20px;
     padding-bottom: 30px;
