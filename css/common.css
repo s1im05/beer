@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+}
+body {
+    background: #fff url(../img/bg.png);
+    height: 100%;
+}
+.b-nav {
+    background: #440404;
+    border-radius: 0;
+    border: none;
+    position: relative;
+}
+.b-main {
+    background: #fff;
+    padding-top: 10px;
+    min-height: 200px;
+}
+.b-logo {
+    background: url(../img/logo_sm.png) no-repeat;
+    width: 85px;
+    height: 99px;
+    position: absolute;
+    display: block;
+    left: 10px;
+}
