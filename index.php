@@ -41,7 +41,7 @@ header('Content-type: text/html; charset=utf-8');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand b-logo" href="#">
+                <a class="navbar-brand b-logo" href="/">
                     <span class="sr-only">Brauwelt Brewery</span>
                 </a>
             </div>
@@ -50,8 +50,42 @@ header('Content-type: text/html; charset=utf-8');
                     <li><a href="#">Схема проезда</a></li>
                     <li><a href="#">Оставить заявку</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
         </nav>
+        <div class="b-photocontainer">
+            <img src="/img/photo.jpg" class="b-photo" />
+            <div class="b-phone">
+                <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+                &nbsp;
+                +7(912)774-94-24
+            </div>
+            <div class="b-address">
+                ПИВОВАРНЯ БРАУВЕЛЬТ<br />
+                г. Челябинск,<br /> ул. Солнечная, д. 6-в
+            </div>
+        </div>
+        <div class="b-section" style="background: #9d202f;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">DARK BOCK</h1>
+                    <h2 class="b-section__title_second">DARK BEER</h2>
+                    <p>Темное пиво с ароматом вина и чернослива, мягкое на вкус с ореховым оттенком и сухим завершением.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый,
+                    солод ячменный карамельный, солод
+                    ячменный жженный, хмель, дрожжи
+                    пивные.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_1.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_1.png">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
