@@ -6,7 +6,7 @@ header('Content-type: text/html; charset=utf-8');
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=720, initial-scale=1" />
     <title>Brauwelt Brewery &mdash; крафтовое пиво в Челябинске</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/common.css" rel="stylesheet" />
