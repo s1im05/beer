@@ -7,11 +7,12 @@ header('Content-type: text/html; charset=utf-8');
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Brauwelt Brewery - крафтовое пиво в Челябинске</title>
+    <title>Brauwelt Brewery &mdash; крафтовое пиво в Челябинске</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/common.css" rel="stylesheet" />
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
     
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
@@ -44,6 +45,16 @@ header('Content-type: text/html; charset=utf-8');
                 <a class="navbar-brand b-logo" href="/">
                     <span class="sr-only">Brauwelt Brewery</span>
                 </a>
+                <div class="addthis_toolbox addthis_default_style addthis_16x16_style b-addthis" 
+                    addthis:url="/"
+                    addthis:title="Brauwelt Brewery">
+                    <a class="addthis_button_vk"></a>
+                    <a class="addthis_button_odnoklassniki_ru"></a>
+                    <a class="addthis_button_mymailru"></a>
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_compact"></a>
+                    <a class="addthis_counter addthis_bubble_style"></a>
+                </div>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -143,8 +154,84 @@ header('Content-type: text/html; charset=utf-8');
                 </div>
             </div>
         </div>
+        <div class="b-section" style="background: #e0d8c8;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__text b-section__text-black col-xs-6">
+                    <h1 class="b-section__title">AMBER</h1>
+                    <h2 class="b-section__title_second">ALE</h2>
+                    <p>Рубинно-красный эль с карамельными нотками во вкусе, легкая хмелевая горечь.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_5.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_5.png">
+                </div>
+            </div>
+        </div>
+        <div class="b-section" style="background: #0d7239;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_6.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_6.png">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">HAWAII</h1>
+                    <h2 class="b-section__title_second">PALE ALE</h2>
+                    <p>Легкий сезонный эль янтарного цвета. Во вкусе медово-солодовая сладость с небольшой горьчинкой в завершении.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="b-section" style="background: #f57f24;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__text b-section__text-black col-xs-6">
+                    <h1 class="b-section__title">CITRUS</h1>
+                    <h2 class="b-section__title_second">BELGIAN WHEAT</h2>
+                    <p>Аромат тропических фруктов. Во вкусе преобладают манго-апельсиновые нотки. В завершении грейпфрутовая горечь.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, апельсиновая цедра, кориандр, хмель, дрожжи пивные.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_7.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_7.png">
+                </div>
+            </div>
+        </div>
         <footer class="b-footer">
-            footer
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Рассказать друзьям:</p>
+                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" 
+                        addthis:url="/"
+                        addthis:title="Brauwelt Brewery">
+                        <a class="addthis_button_vk"></a>
+                        <a class="addthis_button_odnoklassniki_ru"></a>
+                        <a class="addthis_button_mymailru"></a>
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_compact"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-right">
+                    2015 &copy; Brauwelt Brewery &mdash; крафтовое пиво в Челябинске<br />
+                    тел.: +7(912)774-94-24<br />
+                    г. Челябинск, ул. Солнечная, д. 6-в 
+                </div>
+            </div>
         </footer>
     </div>
 </body>

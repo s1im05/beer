@@ -12,11 +12,17 @@ body {
     position: relative;
     margin-bottom: 0;
 }
+.navbar-right {
+    text-align: right;
+}
+.b-addthis {
+    margin-left: 110px;
+    margin-top: 16px;
+}
 .b-photo {
     max-width: 100%;
 }
 .b-main {
-    background: #fff;
     min-height: 200px;
 }
 .b-logo {
@@ -104,4 +110,9 @@ body {
 .b-section__text-black {
     color: #000;
 }
-
+.b-footer {
+    border-top: 10px solid #000;
+    padding: 10px 20px 20px 20px;
+    background: #440404;
+    color: #caa;
+}
