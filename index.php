@@ -86,6 +86,66 @@ header('Content-type: text/html; charset=utf-8');
                 </div>
             </div>
         </div>
+        <div class="b-section" style="background: #003282;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_2.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_2.png">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">BELGIAN</h1>
+                    <h2 class="b-section__title_second">BLONDE ALE</h2>
+                    <p>Крепкий светлый эль в Бельгийском стиле. Аромат цитрусово-хмелевой. Во вкусе, так же, различаются сладковато-цитрусовые нотки с легкой хмелевой горечью.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, хмель, дрожжи пивные.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="b-section" style="background: #e0ddd7;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__text b-section__text-black col-xs-6">
+                    <h1 class="b-section__title">INDIAN</h1>
+                    <h2 class="b-section__title_second">PALE ALE</h2>
+                    <p>Хорошо охмеленное пиво верхового брожения. В аромате цитрусовая тема дополняется хвойными нотками. На вкус карамельные тона с умеренным горьким завершением.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_3.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_3.png">
+                </div>
+            </div>
+        </div>
+        <div class="b-section" style="background: #164c2a;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_4.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_4.png">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">APA</h1>
+                    <h2 class="b-section__title_second">SINGLE HOP EQUINOX</h2>
+                    <p>Сварен с использованием благородного Американского хмеля Equinox. Аромат: цитрусово-хвойно-яблочный. Вкус легкий фруктово-хмелевой. Горечь средняя.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                </div>
+            </div>
+        </div>
+        <footer class="b-footer">
+            footer
+        </footer>
     </div>
 </body>
 </html>
