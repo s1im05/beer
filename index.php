@@ -14,6 +14,8 @@ header('Content-type: text/html; charset=utf-8');
     <link href="/css/common.css" rel="stylesheet" />
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script src="/js/common.js"></script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
     
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
@@ -60,8 +62,8 @@ header('Content-type: text/html; charset=utf-8');
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Схема проезда</a></li>
-                    <li><a href="#">Оставить заявку</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal_map">Схема проезда</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></li>
                 </ul>
             </div>
         </nav>
@@ -266,6 +268,42 @@ header('Content-type: text/html; charset=utf-8');
                 </div>
             </div>
         </footer>
+    </div>
+    
+    <div class="modal fade" id="modal_map" tabindex="-1" role="dialog" aria-labelledby="modal_map_label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modal_map_label">Схема проезда</h4>
+                </div>
+                <div class="modal-body">
+                    <p>По всем возникшим вопросам звоните по телефону: <strong>+7(912)774-94-24</strong></p>
+                    <div id="map_container" style="width: 570px; height: 400px;" data-map="55.204464 61.317429" data-title="Brauwelt Brewer"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal_send" tabindex="-1" role="dialog" aria-labelledby="modal_send_label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modal_send_label">Оставить заявку</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Отправить</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
