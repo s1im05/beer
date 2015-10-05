@@ -279,7 +279,7 @@ header('Content-type: text/html; charset=utf-8');
                 </div>
                 <div class="modal-body">
                     <p>По всем возникшим вопросам звоните по телефону: <strong>+7(912)774-94-24</strong></p>
-                    <div id="map_container" style="width: 570px; height: 400px;" data-map="55.204464 61.317429" data-title="Brauwelt Brewer"></div>
+                    <div id="map_container" style="width: 570px; height: 400px;" data-map="55.204464 61.317429" data-title="Brauwelt Brewery"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
