@@ -8,6 +8,8 @@ header('Content-type: text/html; charset=utf-8');
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=720, initial-scale=1" />
     <title>Brauwelt Brewery &mdash; крафтовое пиво в Челябинске</title>
+    
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/common.css" rel="stylesheet" />
     <script src="/js/jquery.min.js"></script>
@@ -28,6 +30,7 @@ header('Content-type: text/html; charset=utf-8');
     <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
     <link rel="manifest" href="/img/favicon/manifest.json">
+    
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -53,7 +56,6 @@ header('Content-type: text/html; charset=utf-8');
                     <a class="addthis_button_mymailru"></a>
                     <a class="addthis_button_facebook"></a>
                     <a class="addthis_button_compact"></a>
-                    <a class="addthis_counter addthis_bubble_style"></a>
                 </div>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -118,6 +120,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p>Крепкий светлый эль в Бельгийском стиле. Аромат цитрусово-хмелевой. Во вкусе, так же, различаются сладковато-цитрусовые нотки с легкой хмелевой горечью.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 13,5% &nbsp; <strong>АBV</strong> 5% &nbsp; <strong>IBU</strong> 25</p>
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
             </div>
@@ -132,6 +135,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p>Хорошо охмеленное пиво верхового брожения. В аромате цитрусовая тема дополняется хвойными нотками. На вкус карамельные тона с умеренным горьким завершением.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 13% &nbsp; <strong>АBV</strong> 5% &nbsp; <strong>IBU</strong> 55</p>
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
@@ -156,6 +160,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p>Сварен с использованием благородного Американского хмеля Equinox. Аромат: цитрусово-хвойно-яблочный. Вкус легкий фруктово-хмелевой. Горечь средняя.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 14% &nbsp; <strong>АBV</strong> 5,5% &nbsp; <strong>IBU</strong> 40</p>
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
             </div>
@@ -170,6 +175,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p>Рубинно-красный эль с карамельными нотками во вкусе, легкая хмелевая горечь.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 14% &nbsp; <strong>АBV</strong> 6% &nbsp; <strong>IBU</strong> 30</p>
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
@@ -194,6 +200,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p>Легкий сезонный эль янтарного цвета. Во вкусе медово-солодовая сладость с небольшой горьчинкой в завершении.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 12% &nbsp; <strong>АBV</strong> 4,5% &nbsp; <strong>IBU</strong> 27</p>
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
             </div>
@@ -208,12 +215,33 @@ header('Content-type: text/html; charset=utf-8');
                     <p>Аромат тропических фруктов. Во вкусе преобладают манго-апельсиновые нотки. В завершении грейпфрутовая горечь.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, апельсиновая цедра, кориандр, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 12% &nbsp; <strong>АBV</strong> 4,5% &nbsp; <strong>IBU</strong> 35</p>
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle"></div>
                     <img class="b-bottle__label" src="/img/label_7.png">
                     <img class="b-bottle__label-bg" src="/img/label_bg_7.png">
+                </div>
+            </div>
+        </div>
+        <div class="b-section" style="background: #f2d5aa;">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_8.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_8.png">
+                </div>
+                <div class="b-section__text b-section__text-black col-xs-6">
+                    <h1 class="b-section__title">PORTER</h1>
+                    <h2 class="b-section__title_second">DARK BEER</h2>
+                    <p>Темное пиво с портвейно-ореховым ароматом. Солодовая сладость во вкусе со смесью чернослива, орехов и ликера.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, солод ячменный жженый, хмель, пивные дрожжи.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 16% &nbsp; <strong>АBV</strong> 6% &nbsp; <strong>IBU</strong> 30</p>
+                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
             </div>
         </div>
@@ -229,7 +257,6 @@ header('Content-type: text/html; charset=utf-8');
                         <a class="addthis_button_mymailru"></a>
                         <a class="addthis_button_facebook"></a>
                         <a class="addthis_button_compact"></a>
-                        <a class="addthis_counter addthis_bubble_style"></a>
                     </div>
                 </div>
                 <div class="col-sm-6 text-right">
