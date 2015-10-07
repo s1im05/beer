@@ -101,7 +101,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle"></div>
+                    <div class="b-bottle b-bottle-black"></div>
                     <img class="b-bottle__label" src="/img/label_1.png">
                     <img class="b-bottle__label-bg" src="/img/label_bg_1.png">
                 </div>
@@ -181,7 +181,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle"></div>
+                    <div class="b-bottle b-bottle-red"></div>
                     <img class="b-bottle__label" src="/img/label_5.png">
                     <img class="b-bottle__label-bg" src="/img/label_bg_5.png">
                 </div>
@@ -221,7 +221,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle"></div>
+                    <div class="b-bottle b-bottle-red"></div>
                     <img class="b-bottle__label" src="/img/label_7.png">
                     <img class="b-bottle__label-bg" src="/img/label_bg_7.png">
                 </div>
@@ -232,7 +232,7 @@ header('Content-type: text/html; charset=utf-8');
                 <div class="b-section__text col-xs-1">
                 </div>
                 <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle"></div>
+                    <div class="b-bottle b-bottle-black"></div>
                     <img class="b-bottle__label" src="/img/label_8.png">
                     <img class="b-bottle__label-bg" src="/img/label_bg_8.png">
                 </div>
