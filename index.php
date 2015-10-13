@@ -5,8 +5,8 @@ if (isset($_GET['send'])) {
     require 'lib/PHPMailerAutoload.php';
 
     $oMail = new PHPMailer;
-    $oMail->setFrom('noreply@beer.vsul.ru', 'robot (noreply)');
-    $oMail->addAddress('s1im05@mail.ru', 'Vadim Suleimanov');
+    $oMail->setFrom('noreply@'.$_SERVER['HTTP_HOST'], 'robot (noreply)');
+    $oMail->addAddress('serg.brauwelt@yandex.ru', 'Serg Brauwelt');
     $oMail->Subject = 'Заявка с сайта';
     $oMail->CharSet = 'utf-8';
     $oMail->msgHTML('
