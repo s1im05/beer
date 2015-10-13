@@ -7,6 +7,11 @@ ymaps.ready(function (){
         }), myPlacemark = new ymaps.Placemark(jqMapContainer.data('map').split(' '), { 
             hintContent: jqMapContainer.data('title'), 
             balloonContent: jqMapContainer.data('title')
+        }, {
+            iconLayout: 'default#image',
+            iconImageHref: '/img/mapsign.png',
+            iconImageSize: [47, 56],
+            iconImageOffset: [-23, -56]
         });
         myMap.geoObjects.add(myPlacemark);
         jqMapContainer.data('map-loaded', true);
