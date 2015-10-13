@@ -17,3 +17,38 @@ ymaps.ready(function (){
         jqMapContainer.data('map-loaded', true);
     }    
 });
+
+$(function(){
+    $('#mesSend').on('click', function(e){
+        var err = false;
+        $('#mesForm :input').each(function(){
+            if ($(this).val() == '') {
+                $(this).parent('.form-group').addClass('has-error').find('.error-block').removeClass('hide');
+                err = true;
+            }
+        });
+        if (err) return;
+        
+        $('#modalBtns').html('<img src="/img/ajax.gif" alt="Отправка...">');
+        $.ajax({
+            url: $('#mesForm').attr('action'),
+            method: 'post',
+            data: $('#mesForm').serialize(),
+            success: function(sData){
+                $('#modalBtns').html('<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>');
+                if (sData == 'true') {
+                    $('#mesForm').html('<p>Ваша заявка была успешно отправлена!</p><p>В ближайшее время мы свяжемся с вами для обсуждения деталей вашего заказа.</p>');
+                } else {
+                    $('#mesForm').html('<p>Проблема при отправке заявки</p><p>По техническим причинам не удалось отправить вашу заявку. Просьба, обновить страницу и попробовать отправить заявку позже.</p>');
+                }
+            }
+        });
+    });
+    
+    $('#mesForm').on('submit', function(){
+        e.preventDefault();
+        $('#mesSend').trigger('click');
+    }).on('change keypress', ':input', function(){
+        $(this).parent('.form-group').removeClass('has-error').find('.error-block').addClass('hide');
+    });
+});

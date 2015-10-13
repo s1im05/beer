@@ -1,5 +1,25 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
+
+if (isset($_GET['send'])) {
+    require 'lib/PHPMailerAutoload.php';
+
+    $oMail = new PHPMailer;
+    $oMail->setFrom('noreply@beer.vsul.ru', 'Робот');
+    $oMail->addAddress('s1im05@mail.ru', 'Vadim Suleimanov');
+    $oMail->Subject = 'Заявка с сайта';
+    $oMail->msgHTML('
+<p>Дата формирования заявки: '.date('H:i, d.m.Y').'</p>
+<p>Имя отправителя: '.htmlspecialchars($_REQUEST['name']).'</p>
+<p>Содержание заявки: '.nl2br(htmlspecialchars($_REQUEST['text'])).'</p>
+<p>Контактная информация: '.nl2br(htmlspecialchars($_REQUEST['contact'])).'</p>');
+
+    if (!$oMail->send()) {
+        die('false');
+    } else {
+        die('true');
+    }  
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,7 +118,7 @@ header('Content-type: text/html; charset=utf-8');
                     ячменный жженный, хмель, дрожжи
                     пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle b-bottle-black"></div>
@@ -123,7 +143,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><strong>Состав:</strong> Солод ячменный светлый, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
                     <p><strong>OG</strong> 13,5% &nbsp; <strong>АBV</strong> 5% &nbsp; <strong>IBU</strong> 25</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
         </div>
@@ -138,7 +158,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
                     <p><strong>OG</strong> 13% &nbsp; <strong>АBV</strong> 5% &nbsp; <strong>IBU</strong> 55</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle"></div>
@@ -163,7 +183,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
                     <p><strong>OG</strong> 14% &nbsp; <strong>АBV</strong> 5,5% &nbsp; <strong>IBU</strong> 40</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
         </div>
@@ -178,7 +198,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
                     <p><strong>OG</strong> 14% &nbsp; <strong>АBV</strong> 6% &nbsp; <strong>IBU</strong> 30</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle b-bottle-red"></div>
@@ -203,7 +223,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
                     <p><strong>OG</strong> 12% &nbsp; <strong>АBV</strong> 4,5% &nbsp; <strong>IBU</strong> 27</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
         </div>
@@ -218,7 +238,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><strong>Состав:</strong> Солод ячменный светлый, апельсиновая цедра, кориандр, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
                     <p><strong>OG</strong> 12% &nbsp; <strong>АBV</strong> 4,5% &nbsp; <strong>IBU</strong> 35</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle b-bottle-red"></div>
@@ -243,7 +263,7 @@ header('Content-type: text/html; charset=utf-8');
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, солод ячменный жженый, хмель, пивные дрожжи.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
                     <p><strong>OG</strong> 16% &nbsp; <strong>АBV</strong> 6% &nbsp; <strong>IBU</strong> 30</p>
-                    <p><a href="#" class="btn btn-default btn-lg">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
         </div>
@@ -296,11 +316,28 @@ header('Content-type: text/html; charset=utf-8');
                     <h4 class="modal-title" id="modal_send_label">Оставить заявку</h4>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form method="post" action="?send=1" id="mesForm">
+                        <div class="form-group">
+                            <label for="inpName">Ваше имя:</label>
+                            <input type="text" name="name" class="form-control" id="inpName" placeholder="Имя">
+                            <p class="help-block error-block hide">Заполните поле</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="inpText">Содержание заявки:</label>
+                            <textarea class="form-control" name="text" id="inpText" rows="5"></textarea>
+                            <p class="help-block error-block hide">Заполните поле</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="inpCont">Контактная информация:</label>
+                            <textarea class="form-control" name="contact" id="inpCont" rows="5"></textarea>
+                            <p class="help-block error-block hide">Заполните поле</p>
+                            <p class="help-block">Пожалуйста, перечислите ваши контактные данные, чтобы мы могли в скором времени связаться с вами</p>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" id="modalBtns">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Отправить</button>
+                    <button type="button" class="btn btn-primary" id="mesSend">Отправить</button>
                 </div>
             </div>
         </div>
