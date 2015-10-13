@@ -105,23 +105,22 @@ if (isset($_GET['send'])) {
             многочисленными стилями пива.</p>
             <p><strong>Наше пиво, в любом случае, не оставит вас равнодушными!</strong></p>
         </div>
-        <div class="b-section" style="background: #9d202f;">
+        <div class="b-section" style="background: #00514c;">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
                 <div class="b-section__text col-xs-6">
-                    <h1 class="b-section__title">DARK BOCK</h1>
-                    <h2 class="b-section__title_second">DARK BEER</h2>
-                    <p>Темное пиво с ароматом вина и чернослива, мягкое на вкус с ореховым оттенком и сухим завершением.</p>
-                    <p><strong>Состав:</strong> Солод ячменный светлый,
-                    солод ячменный карамельный, солод
-                    ячменный жженный, хмель, дрожжи
-                    пивные.</p>
+                    <h1 class="b-section__title">GREENWICH</h1>
+                    <h2 class="b-section__title_second">ENGLISH STRONG ALE</h2>
+                    <p>Рубиновый эль с ароматом красного вина и нотками черешни. Во вкусе продолжается винно-черешнивая тема, переходящая в сухую умеренную горечь.</p>
+                    <p><strong>Состав:</strong> Солод ячменный светлый, солод
+                    ячменный карамельный, солод ячменный жженный, хмель,дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <p><strong>OG</strong> 17% &nbsp; <strong>АBV</strong> 6%</p>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle b-bottle-black"></div>
+                    <div class="b-bottle b-bottle-red"></div>
                     <img class="b-bottle__label" src="/img/label_1.png">
                     <img class="b-bottle__label-bg" src="/img/label_bg_1.png">
                 </div>

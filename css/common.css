@@ -85,6 +85,7 @@ body {
     background: url(../img/bottle_mask_sm.png) no-repeat;
     width: 184px;
     height: 470px;
+    margin-top: 135px;
 }
 .b-bottle-black {
     background: url(../img/bottle_mask_sm_black.png) no-repeat;
@@ -93,12 +94,12 @@ body {
     background: url(../img/bottle_mask_sm_red.png) no-repeat;
 }
 .b-bottle__label {
-    width: 114px;
-    height: 153px;
+    width: 75px;
+    height: 102px;
     position: absolute;
     z-index: 2;
-    top: 229px;
-    left: 49px;
+    top: 287px;
+    left: 38px;
 }
 .b-bottle__label-bg {
     top: 0;
