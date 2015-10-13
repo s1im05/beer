@@ -5,9 +5,10 @@ if (isset($_GET['send'])) {
     require 'lib/PHPMailerAutoload.php';
 
     $oMail = new PHPMailer;
-    $oMail->setFrom('noreply@beer.vsul.ru', 'Робот');
+    $oMail->setFrom('noreply@beer.vsul.ru', 'robot (noreply)');
     $oMail->addAddress('s1im05@mail.ru', 'Vadim Suleimanov');
     $oMail->Subject = 'Заявка с сайта';
+    $oMail->CharSet = 'utf-8';
     $oMail->msgHTML('
 <p>Дата формирования заявки: '.date('H:i, d.m.Y').'</p>
 <p>Имя отправителя: '.htmlspecialchars($_REQUEST['name']).'</p>
