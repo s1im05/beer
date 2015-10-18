@@ -3,14 +3,25 @@ header('Content-type: text/html; charset=utf-8');
 error_reporting(0);
 session_start();
 
-$aData  = json_decode(file_get_contents('data.json'));
+define('SALT', '#V%$34b 07-i3,WB');
+define('HASH1', '5a4539ff4cabbc7ad8d853bad351778f');
+define('HASH2', 'a438ca8ff7950f691dbcee0cebba119b');
+
+$aData  = json_decode(file_get_contents('lib/data.json'));
 
 if (isset($_GET['auth'])) {
-    if (isset($_POST['login']) && ($_POST['login'] === 'admin') && isset($_POST['password']) && ($_POST['password'] === 'pass')) {
+    sleep(2);
+    if (isset($_POST['login']) && (md5($_POST['login'].SALT) === HASH1) && isset($_POST['password']) && (md5($_POST['password'].SALT) === HASH2)) {
         $_SESSION['auth']   = true;
-        header('Location: /');
-        die();
     }
+    header('Location: /');
+    die();
+}
+
+if (isset($_GET['logout'])) {
+    unset($_SESSION['auth']);
+    header('Location: /');
+    die();
 }
 
 if (isset($_GET['save'])) {
@@ -20,7 +31,7 @@ if (isset($_GET['save'])) {
         } else {
             $aData->$_POST['id'] = strtotime($_POST['date']);
         }
-        $r  = fopen('data.json', 'w');
+        $r  = fopen('lib/data.json', 'w');
         fwrite($r, json_encode($aData));
         fclose($r);
     }
@@ -118,6 +129,9 @@ if (isset($_GET['send'])) {
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" data-toggle="modal" data-target="#modal_map">Схема проезда</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></li>
+                    <? if (isset($_SESSION['auth']) && $_SESSION['auth']) :?>
+                        <li><a href="?logout=1">Выход</a></li>
+                    <? endif;?>
                 </ul>
             </div>
         </nav>
