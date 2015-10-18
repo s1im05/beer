@@ -31,6 +31,7 @@ if (isset($_GET['send'])) {
     <title>Brauwelt Brewery &mdash; крафтовое пиво в Челябинске</title>
     
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/common.css" rel="stylesheet" />
     <script src="/js/jquery.min.js"></script>
@@ -115,9 +116,22 @@ if (isset($_GET['send'])) {
                     <h2 class="b-section__title_second">ENGLISH STRONG ALE</h2>
                     <p>Рубиновый эль с ароматом красного вина и нотками черешни. Во вкусе продолжается винно-черешнивая тема, переходящая в сухую умеренную горечь.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод
-                    ячменный карамельный, солод ячменный жженный, хмель,дрожжи пивные.</p>
+                    ячменный карамельный, солод ячменный жженный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 17% &nbsp; <strong>АBV</strong> 6%</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">17% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">6% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">50 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
@@ -142,7 +156,20 @@ if (isset($_GET['send'])) {
                     <p>Крепкий светлый эль в Бельгийском стиле. Аромат цитрусово-хмелевой. Во вкусе, так же, различаются сладковато-цитрусовые нотки с легкой хмелевой горечью.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 13,5% &nbsp; <strong>АBV</strong> 5% &nbsp; <strong>IBU</strong> 25</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">13,5% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">5% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">25 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
@@ -157,7 +184,20 @@ if (isset($_GET['send'])) {
                     <p>Хорошо охмеленное пиво верхового брожения. В аромате цитрусовая тема дополняется хвойными нотками. На вкус карамельные тона с умеренным горьким завершением.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 13% &nbsp; <strong>АBV</strong> 5% &nbsp; <strong>IBU</strong> 55</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">13% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">5% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">55 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
@@ -182,7 +222,20 @@ if (isset($_GET['send'])) {
                     <p>Сварен с использованием благородного Американского хмеля Equinox. Аромат: цитрусово-хвойно-яблочный. Вкус легкий фруктово-хмелевой. Горечь средняя.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 14% &nbsp; <strong>АBV</strong> 5,5% &nbsp; <strong>IBU</strong> 40</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">14% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">5,5% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">40 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
@@ -197,7 +250,20 @@ if (isset($_GET['send'])) {
                     <p>Рубинно-красный эль с карамельными нотками во вкусе, легкая хмелевая горечь.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 14% &nbsp; <strong>АBV</strong> 6% &nbsp; <strong>IBU</strong> 30</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">14% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">6% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">30 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
@@ -222,7 +288,20 @@ if (isset($_GET['send'])) {
                     <p>Легкий сезонный эль янтарного цвета. Во вкусе медово-солодовая сладость с небольшой горьчинкой в завершении.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 12% &nbsp; <strong>АBV</strong> 4,5% &nbsp; <strong>IBU</strong> 27</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">12% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">4,5% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">27 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
@@ -237,7 +316,20 @@ if (isset($_GET['send'])) {
                     <p>Аромат тропических фруктов. Во вкусе преобладают манго-апельсиновые нотки. В завершении грейпфрутовая горечь.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, апельсиновая цедра, кориандр, хмель, дрожжи пивные.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 12% &nbsp; <strong>АBV</strong> 4,5% &nbsp; <strong>IBU</strong> 35</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">12% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">4,5% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">35 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
@@ -262,7 +354,20 @@ if (isset($_GET['send'])) {
                     <p>Темное пиво с портвейно-ореховым ароматом. Солодовая сладость во вкусе со смесью чернослива, орехов и ликера.</p>
                     <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, солод ячменный жженый, хмель, пивные дрожжи.</p>
                     <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <p><strong>OG</strong> 16% &nbsp; <strong>АBV</strong> 6% &nbsp; <strong>IBU</strong> 30</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">16% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">6% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">30 IBU</div>
+                        </div>
+                    </div>
                     <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
                 </div>
             </div>
