@@ -1,5 +1,32 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
+error_reporting(0);
+session_start();
+
+$aData  = json_decode(file_get_contents('data.json'));
+
+if (isset($_GET['auth'])) {
+    if (isset($_POST['login']) && ($_POST['login'] === 'admin') && isset($_POST['password']) && ($_POST['password'] === 'pass')) {
+        $_SESSION['auth']   = true;
+        header('Location: /');
+        die();
+    }
+}
+
+if (isset($_GET['save'])) {
+    if (isset($_SESSION['auth']) && $_SESSION['auth']) { //save action
+        if ($_POST['optionsRadios'] == 'true') {
+            $aData->$_POST['id'] = true;
+        } else {
+            $aData->$_POST['id'] = strtotime($_POST['date']);
+        }
+        $r  = fopen('data.json', 'w');
+        fwrite($r, json_encode($aData));
+        fclose($r);
+    }
+    header('Location: /'.($_POST['id']?'#section_'.$_POST['id']:''));
+    die();
+}
 
 if (isset($_GET['send'])) {
     require 'lib/PHPMailerAutoload.php';
@@ -58,6 +85,11 @@ if (isset($_GET['send'])) {
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    
+    <? if (isset($_SESSION['auth']) && $_SESSION['auth']) :?>
+    <link href="/css/zebra_datepicker/bootstrap.css" rel="stylesheet" />
+    <script src="/js/zebra_datepicker.js"></script>
+    <? endif;?>
 </head>
 <body>
     <div class="container b-main">
@@ -107,7 +139,7 @@ if (isset($_GET['send'])) {
             многочисленными стилями пива.</p>
             <p><strong>Наше пиво, в любом случае, не оставит вас равнодушными!</strong></p>
         </div>
-        <div class="b-section" style="background: #00514c;">
+        <div class="b-section" style="background: #00514c;" id="section_greenwich">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -132,7 +164,11 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">50 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->greenwich === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->greenwich);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="greenwich">изменить</button>':''?>
+                    </p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle b-bottle-red"></div>
@@ -141,7 +177,7 @@ if (isset($_GET['send'])) {
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #003282;">
+        <div class="b-section" style="background: #003282;" id="section_belgian">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -170,11 +206,15 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">25 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->belgian === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->belgian);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="belgian">изменить</button>':''?>
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #e0ddd7;">
+        <div class="b-section" style="background: #e0ddd7;" id="section_indian">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -198,7 +238,11 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">55 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->indian === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->indian);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="indian">изменить</button>':''?>
+                    </p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle"></div>
@@ -207,7 +251,7 @@ if (isset($_GET['send'])) {
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #164c2a;">
+        <div class="b-section" style="background: #164c2a;" id="section_apa">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -236,11 +280,15 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">40 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->apa === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->apa);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="apa">изменить</button>':''?>
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #e0d8c8;">
+        <div class="b-section" style="background: #e0d8c8;" id="section_amber">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -264,7 +312,11 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">30 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->amber === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->amber);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="amber">изменить</button>':''?>
+                    </p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle b-bottle-red"></div>
@@ -273,7 +325,7 @@ if (isset($_GET['send'])) {
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #0d7239;">
+        <div class="b-section" style="background: #0d7239;" id="section_hawaii">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -302,11 +354,15 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">27 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->hawaii === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->hawaii);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="hawaii">изменить</button>':''?>
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #f57f24;">
+        <div class="b-section" style="background: #f57f24;" id="section_citrus">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -330,7 +386,11 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">35 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->citrus === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->citrus);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="citrus">изменить</button>':''?>
+                    </p>
                 </div>
                 <div class="b-section__bottle col-xs-5">
                     <div class="b-bottle b-bottle-red"></div>
@@ -339,7 +399,7 @@ if (isset($_GET['send'])) {
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #f2d5aa;">
+        <div class="b-section" style="background: #f2d5aa;" id="section_porter">
             <div class="row">
                 <div class="b-section__text col-xs-1">
                 </div>
@@ -368,7 +428,11 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">30 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></p>
+                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->porter === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->porter);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="porter">изменить</button>':''?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -447,5 +511,93 @@ if (isset($_GET['send'])) {
             </div>
         </div>
     </div>
+
+    <? if (isset($_GET['login_action'])) :?>
+        <div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="modal_logn_label">
+            <div class="modal-dialog" role="document">
+                <form method="post" action="?auth=1" id="loginForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modal_logn_label">Авторизация</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="inpName">Логин:</label>
+                            <input type="text" name="login" class="form-control" placeholder="Логин">
+                        </div>
+                        <div class="form-group">
+                            <label for="inpText">Пароль:</label>
+                            <input type="password" name="password" class="form-control" placeholder="Пароль">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-primary" id="loginSend">Отправить</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $(function(){
+                $('#modal_login').modal('show');
+            });
+        </script>
+    <? endif;?>
+    
+    <? if (isset($_SESSION['auth']) && $_SESSION['auth']) :?>
+        <div class="modal fade" id="modal_change" tabindex="-1" role="dialog" aria-labelledby="modal_change_label">
+            <div class="modal-dialog" role="document">
+                <form method="post" action="?save=1" id="changeForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modal_change_label">Изменить</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="true" checked="checked">
+                            в наличии
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="false">
+                            ожидается <input type="text" name="date" value="<?=date('d.m.Y');?>" id="datepick" />
+                          </label>
+                        </div>
+                        <input type="hidden" name="id" value="" id="save_id_holder" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-primary" id="changeSend">Сохранить</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            $(function(){
+                $('#modal_change').on('shown.bs.modal', function(){
+                    $('#datepick').Zebra_DatePicker({
+                        format: 'd.m.Y'
+                    });
+                });
+                
+                $('#datepick').on('click', function(){
+                    $('#optionsRadios2').prop('checked', true);
+                });
+
+                $(document).on('click', '.change_btn', function(){
+                    $('#modal_change').modal('show');
+                    $('#save_id_holder').val( $(this).data('id') );
+                })
+            });
+        </script>
+    <? endif;?>
 </body>
 </html>
