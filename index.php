@@ -41,7 +41,13 @@ if (isset($_GET['save'])) {
 
 if (isset($_GET['send'])) {
     require 'lib/PHPMailerAutoload.php';
-
+    
+    $sText  = "<ul>\n";
+    foreach ($_POST['beer'] as $aVal) {
+        $sText  .= "<li>".htmlspecialchars(trim($aVal['title'])).", кол-во: ".intval(trim($aVal['count']))." бут.</li>\n";
+    }
+    $sText  .= "<ul>\n";
+    
     $oMail = new PHPMailer;
     $oMail->setFrom('noreply@'.$_SERVER['HTTP_HOST'], 'robot (noreply)');
     $oMail->addAddress('serg.brauwelt@yandex.ru', 'Serg Brauwelt');
@@ -50,7 +56,7 @@ if (isset($_GET['send'])) {
     $oMail->msgHTML('
 <p>Дата формирования заявки: '.date('H:i, d.m.Y').'</p>
 <p>Имя отправителя: '.htmlspecialchars($_REQUEST['name']).'</p>
-<p>Содержание заявки: '.nl2br(htmlspecialchars($_REQUEST['text'])).'</p>
+<p>Содержание заявки: '.$sText.'</p>
 <p>Контактная информация: '.nl2br(htmlspecialchars($_REQUEST['contact'])).'</p>');
 
     if (!$oMail->send()) {
@@ -178,7 +184,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">50 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="greenwich" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->greenwich === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->greenwich);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="greenwich">изменить</button>':''?>
@@ -220,7 +226,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">25 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="belgian" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->belgian === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->belgian);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="belgian">изменить</button>':''?>
@@ -252,7 +258,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">55 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="indian" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->indian === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->indian);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="indian">изменить</button>':''?>
@@ -294,7 +300,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">40 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="apa" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->apa === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->apa);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="apa">изменить</button>':''?>
@@ -326,7 +332,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">30 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="amber" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->amber === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->amber);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="amber">изменить</button>':''?>
@@ -368,7 +374,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">27 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="hawaii" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->hawaii === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->hawaii);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="hawaii">изменить</button>':''?>
@@ -400,7 +406,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">35 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="citrus" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->citrus === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->citrus);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="citrus">изменить</button>':''?>
@@ -442,7 +448,7 @@ if (isset($_GET['send'])) {
                             <div class="b-sort__value">30 IBU</div>
                         </div>
                     </div>
-                    <p><a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="porter" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
                         &nbsp;
                         <?=$aData->porter === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->porter);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="porter">изменить</button>':''?>
@@ -507,14 +513,29 @@ if (isset($_GET['send'])) {
                         </div>
                         <div class="form-group">
                             <label for="inpText">Содержание заявки:</label>
-                            <textarea class="form-control" name="text" id="inpText" rows="5"></textarea>
-                            <p class="help-block error-block hide">Заполните поле</p>
+                            <div class="form-inline">
+                                <div class="form-group" id="beerSelectPanel">
+                                    <select id="beerSelect" class="form-control">
+                                        <option value="greenwich" data-img="/img/label_1.png" selected="selected">GREENWICH English Strong Ale</option>
+                                        <option value="belgian" data-img="/img/label_2.png">BELGIAN Blonde Ale</option>
+                                        <option value="indian" data-img="/img/label_3.png">INDIAN Pale Ale</option>
+                                        <option value="apa" data-img="/img/label_4.png">APA Single Hop Equinox</option>
+                                        <option value="amber" data-img="/img/label_5.png">AMBER Ale</option>
+                                        <option value="hawaii" data-img="/img/label_6.png">HAWAII Pale Ale</option>
+                                        <option value="citrus" data-img="/img/label_7.png">CITRUS Belgian Wheat</option>
+                                        <option value="porter" data-img="/img/label_8.png">PORTER Dark Beer</option>
+                                    </select> 
+                                    <button type="button" class="btn btn-success" id="beerAdd">добавить</button>
+                                    <p class="help-block error-block hide">Выберите хотя бы одну позицию</p>
+                                </div>
+                            </div>
+                            <div id="beerList" class="b-beerlist"></div>
                         </div>
                         <div class="form-group">
-                            <label for="inpCont">Контактная информация:</label>
+                            <label for="inpCont">Ваши комментарии к заказу и контактная информация:</label>
                             <textarea class="form-control" name="contact" id="inpCont" rows="5"></textarea>
                             <p class="help-block error-block hide">Заполните поле</p>
-                            <p class="help-block">Пожалуйста, перечислите ваши контактные данные, чтобы мы могли в скором времени связаться с вами</p>
+                            <p class="help-block">Пожалуйста, перечислите ваши контактные данные в поле выше, чтобы мы могли в скором времени связаться с вами</p>
                         </div>
                     </form>
                 </div>
@@ -621,6 +642,8 @@ if (isset($_GET['send'])) {
 
         ga('create', 'UA-69007114-1', 'auto');
         ga('send', 'pageview');
+        
+        <?=isset($_GET['resend'])?'$(function(){$("#modal_send").modal("show");});':''?>
     </script>
 </body>
 </html>

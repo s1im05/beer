@@ -138,3 +138,23 @@ body {
     font-weight: bold;
     margin-bottom: 1em;
 }
+.b-beerlist{
+    margin: .8em 0;
+}
+.b-beerlist__item {
+    font-size: 1.25em;
+}
+.b-beerlist__img {
+    height: 40px;
+    margin-right: .5em;
+}
+.b-beerlist__row {
+    padding: .3em 0;
+    border-bottom: 1px solid #ddd;
+}
+#beerSelect {
+    width: 400px;
+}
+option:disabled {
+    color: #ccc;
+}
