@@ -134,7 +134,7 @@ if (isset($_GET['send'])) {
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" data-toggle="modal" data-target="#modal_map">Схема проезда</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal_send">Оставить заявку</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal_send">В корзину</a></li>
                     <? if (isset($_SESSION['auth']) && $_SESSION['auth']) :?>
                         <li><a href="?logout=1">Выход</a></li>
                     <? endif;?>
@@ -540,7 +540,7 @@ if (isset($_GET['send'])) {
                     </form>
                 </div>
                 <div class="modal-footer" id="modalBtns">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Свернуть</button>
                     <button type="button" class="btn btn-primary" id="mesSend">Отправить</button>
                 </div>
             </div>
