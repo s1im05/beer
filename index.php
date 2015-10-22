@@ -103,6 +103,9 @@ if (isset($_GET['send'])) {
     <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     
+    <meta name="description" content="Самое лучшее и свежее крафтовое пиво в Челябинске\n тел.: +7(912)774-94-24\n г. Челябинск, ул. Солнечная, д. 6-в">
+    <link rel="image_src" href="/img/photo.jpg" />
+    
     <? if (isset($_SESSION['auth']) && $_SESSION['auth']) :?>
     <link href="/css/zebra_datepicker/bootstrap.css" rel="stylesheet" />
     <script src="/js/zebra_datepicker.js"></script>
@@ -122,7 +125,11 @@ if (isset($_GET['send'])) {
                     <span class="sr-only">Brauwelt Brewery</span>
                 </a>
                 <div class="addthis_toolbox addthis_default_style addthis_16x16_style b-addthis" 
-                    addthis:url="/"
+                    addthis:url="http://<?=$_SERVER['HTTP_HOST']?>/"
+                    addthis:description="Самое лучшее и свежее крафтовое пиво в Челябинске
+                    тел.: +7(912)774-94-24
+                    г. Челябинск, ул. Солнечная, д. 6-в"
+                    addthis:image="/img/photo.jpg"
                     addthis:title="Brauwelt Brewery">
                     <a class="addthis_button_vk"></a>
                     <a class="addthis_button_odnoklassniki_ru"></a>
@@ -461,7 +468,11 @@ if (isset($_GET['send'])) {
                 <div class="col-sm-6">
                     <p>Рассказать друзьям:</p>
                     <div class="addthis_toolbox addthis_default_style addthis_32x32_style" 
-                        addthis:url="/"
+                        addthis:url="http://<?=$_SERVER['HTTP_HOST']?>/"
+                        addthis:description="Самое лучшее и свежее крафтовое пиво в Челябинске
+                        тел.: +7(912)774-94-24
+                        г. Челябинск, ул. Солнечная, д. 6-в"
+                        addthis:image="/img/photo.jpg"
                         addthis:title="Brauwelt Brewery">
                         <a class="addthis_button_vk"></a>
                         <a class="addthis_button_odnoklassniki_ru"></a>
