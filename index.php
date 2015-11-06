@@ -166,6 +166,78 @@ if (isset($_GET['send'])) {
             многочисленными стилями пива.</p>
             <p><strong>Наше пиво, в любом случае, не оставит вас равнодушными!</strong></p>
         </div>
+        <div class="b-section" style="background: #ba5619;" id="section_sitra">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">﻿﻿﻿EXTRA CITRA</h1>
+                    <h2 class="b-section__title_second">IPA</h2>
+                    <p>Пиво в стиле IPA с упором на хмель Citra. Щедрое количество этого хмеля использовано на сухое охмеление, что придало яркий аромат тропических фруктов. Солодовая сладость умело скрывает 85IBU и раскрывает нотки тех же тропиков.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">16% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">7% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">85 IBU</div>
+                        </div>
+                    </div>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="sitra" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->sitra === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->sitra);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="sitra">изменить</button>':''?>
+                    </p>
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle b-bottle-red"></div>
+                    <img class="b-bottle__label" src="/img/label_9.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_9.png">
+                </div>
+            </div>
+        </div>
+        <div class="b-section" style="background: #3b0300;" id="section_hopwood">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_10.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_10.png">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">HOP&WOOD</h1>
+                    <h2 class="b-section__title_second">STRONG LAGER</h2>
+                    <p>Эксперементальный сорт - хорошо охмеленный лагер, сброженный на щепе дуба. В итоге, получилось пиво янтарного цвета с ярким ароматом цветочного меда. Вкус вяленного яблока, груши с явственной горечью в завершении.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">15% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">6% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">8.0 IBU</div>
+                        </div>
+                    </div>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="hopwood" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->hopwood === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->hopwood);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="hopwood">изменить</button>':''?>
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="b-section" style="background: #00514c;" id="section_greenwich">
             <div class="row">
                 <div class="b-section__text col-xs-1">
@@ -527,7 +599,9 @@ if (isset($_GET['send'])) {
                             <div class="form-inline">
                                 <div class="form-group" id="beerSelectPanel">
                                     <select id="beerSelect" class="form-control">
-                                        <option value="greenwich" data-img="/img/label_1.png" selected="selected">GREENWICH English Strong Ale</option>
+                                        <option value="sitra" data-img="/img/label_9.png" selected="selected">EXTRA CITRA IPA</option>
+                                        <option value="hopwood" data-img="/img/label_10.png">HOP&WOOD Strong Lager</option>
+                                        <option value="greenwich" data-img="/img/label_1.png">GREENWICH English Strong Ale</option>
                                         <option value="belgian" data-img="/img/label_2.png">BELGIAN Blonde Ale</option>
                                         <option value="indian" data-img="/img/label_3.png">INDIAN Pale Ale</option>
                                         <option value="apa" data-img="/img/label_4.png">APA Single Hop Equinox</option>
