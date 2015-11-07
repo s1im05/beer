@@ -313,51 +313,9 @@ if (isset($_GET['send'])) {
                 </div>
             </div>
         </div>
-        <div class="b-section" style="background: #e0ddd7;" id="section_indian">
-            <div class="row">
-                <div class="b-section__text col-xs-1">
-                </div>
-                <div class="b-section__text b-section__text-black col-xs-6">
-                    <h1 class="b-section__title">INDIAN</h1>
-                    <h2 class="b-section__title_second">PALE ALE</h2>
-                    <p>Хорошо охмеленное пиво верхового брожения. В аромате цитрусовая тема дополняется хвойными нотками. На вкус карамельные тона с умеренным горьким завершением.</p>
-                    <p><strong>Состав:</strong> Солод ячменный светлый, солод ячменный карамельный, хмель, дрожжи пивные.</p>
-                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <div class="b-sort__ttl">Плотность</div>
-                            <div class="b-sort__value">13% OG</div>
-                        </div>
-                        <div class="col-xs-4">
-                            <div class="b-sort__ttl">Алкоголь</div>
-                            <div class="b-sort__value">5% ABV</div>                        
-                        </div>
-                        <div class="col-xs-4">
-                            <div class="b-sort__ttl">Горечь</div>
-                            <div class="b-sort__value">55 IBU</div>
-                        </div>
-                    </div>
-                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="indian" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
-                        &nbsp;
-                        <?=$aData->indian === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->indian);?>
-                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="indian">изменить</button>':''?>
-                    </p>
-                </div>
-                <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle"></div>
-                    <img class="b-bottle__label" src="/img/label_3.png">
-                    <img class="b-bottle__label-bg" src="/img/label_bg_3.png">
-                </div>
-            </div>
-        </div>
         <div class="b-section" style="background: #164c2a;" id="section_apa">
             <div class="row">
                 <div class="b-section__text col-xs-1">
-                </div>
-                <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle"></div>
-                    <img class="b-bottle__label" src="/img/label_4.png">
-                    <img class="b-bottle__label-bg" src="/img/label_bg_4.png">
                 </div>
                 <div class="b-section__text col-xs-6">
                     <h1 class="b-section__title">APA</h1>
@@ -385,11 +343,21 @@ if (isset($_GET['send'])) {
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="apa">изменить</button>':''?>
                     </p>
                 </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_4.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_4.png">
+                </div>
             </div>
         </div>
         <div class="b-section" style="background: #e0d8c8;" id="section_amber">
             <div class="row">
                 <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle b-bottle-red"></div>
+                    <img class="b-bottle__label" src="/img/label_5.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_5.png">
                 </div>
                 <div class="b-section__text b-section__text-black col-xs-6">
                     <h1 class="b-section__title">AMBER</h1>
@@ -417,21 +385,11 @@ if (isset($_GET['send'])) {
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="amber">изменить</button>':''?>
                     </p>
                 </div>
-                <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle b-bottle-red"></div>
-                    <img class="b-bottle__label" src="/img/label_5.png">
-                    <img class="b-bottle__label-bg" src="/img/label_bg_5.png">
-                </div>
             </div>
         </div>
         <div class="b-section" style="background: #0d7239;" id="section_hawaii">
             <div class="row">
                 <div class="b-section__text col-xs-1">
-                </div>
-                <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle"></div>
-                    <img class="b-bottle__label" src="/img/label_6.png">
-                    <img class="b-bottle__label-bg" src="/img/label_bg_6.png">
                 </div>
                 <div class="b-section__text col-xs-6">
                     <h1 class="b-section__title">HAWAII</h1>
@@ -459,11 +417,21 @@ if (isset($_GET['send'])) {
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="hawaii">изменить</button>':''?>
                     </p>
                 </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_6.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_6.png">
+                </div>
             </div>
         </div>
         <div class="b-section" style="background: #f57f24;" id="section_citrus">
             <div class="row">
                 <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle b-bottle-red"></div>
+                    <img class="b-bottle__label" src="/img/label_7.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_7.png">
                 </div>
                 <div class="b-section__text b-section__text-black col-xs-6">
                     <h1 class="b-section__title">CITRUS</h1>
@@ -491,21 +459,11 @@ if (isset($_GET['send'])) {
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="citrus">изменить</button>':''?>
                     </p>
                 </div>
-                <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle b-bottle-red"></div>
-                    <img class="b-bottle__label" src="/img/label_7.png">
-                    <img class="b-bottle__label-bg" src="/img/label_bg_7.png">
-                </div>
             </div>
         </div>
         <div class="b-section" style="background: #f2d5aa;" id="section_porter">
             <div class="row">
                 <div class="b-section__text col-xs-1">
-                </div>
-                <div class="b-section__bottle col-xs-5">
-                    <div class="b-bottle b-bottle-black"></div>
-                    <img class="b-bottle__label" src="/img/label_8.png">
-                    <img class="b-bottle__label-bg" src="/img/label_bg_8.png">
                 </div>
                 <div class="b-section__text b-section__text-black col-xs-6">
                     <h1 class="b-section__title">PORTER</h1>
@@ -532,6 +490,11 @@ if (isset($_GET['send'])) {
                         <?=$aData->porter === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->porter);?>
                         <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="porter">изменить</button>':''?>
                     </p>
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle b-bottle-black"></div>
+                    <img class="b-bottle__label" src="/img/label_8.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_8.png">
                 </div>
             </div>
         </div>
@@ -603,7 +566,6 @@ if (isset($_GET['send'])) {
                                         <option value="hopwood" data-img="/img/label_10.png">HOP&WOOD Strong Lager</option>
                                         <option value="greenwich" data-img="/img/label_1.png">GREENWICH English Strong Ale</option>
                                         <option value="belgian" data-img="/img/label_2.png">BELGIAN Blonde Ale</option>
-                                        <option value="indian" data-img="/img/label_3.png">INDIAN Pale Ale</option>
                                         <option value="apa" data-img="/img/label_4.png">APA Single Hop Equinox</option>
                                         <option value="amber" data-img="/img/label_5.png">AMBER Ale</option>
                                         <option value="hawaii" data-img="/img/label_6.png">HAWAII Pale Ale</option>
