@@ -227,7 +227,7 @@ if (isset($_GET['send'])) {
                         </div>
                         <div class="col-xs-4">
                             <div class="b-sort__ttl">Горечь</div>
-                            <div class="b-sort__value">8.0 IBU</div>
+                            <div class="b-sort__value">80 IBU</div>
                         </div>
                     </div>
                     <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="hopwood" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
