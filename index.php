@@ -166,6 +166,78 @@ if (isset($_GET['send'])) {
             многочисленными стилями пива.</p>
             <p><strong>Наше пиво, в любом случае, не оставит вас равнодушными!</strong></p>
         </div>
+        <div class="b-section" style="background: #592c71;" id="section_quadrupel">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">QUADRUPEL</h1>
+                    <h2 class="b-section__title_second">BELGIAN STYLE</h2>
+                    <p>Плотное, крепкое темное пиво с ароматом жженной карамели. Маслянистое тело с лёгкой винной ноткой. Во вкусе шоколад, карамель, орех.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">24% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">9% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">40 IBU</div>
+                        </div>
+                    </div>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="quadrupel" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->quadrupel === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->quadrupel);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="quadrupel">изменить</button>':''?>
+                    </p>
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle b-bottle-red"></div>
+                    <img class="b-bottle__label" src="/img/label_11.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_11.png">
+                </div>
+            </div>
+        </div>
+        <div class="b-section" style="background: #2a2927;" id="section_blackray">
+            <div class="row">
+                <div class="b-section__text col-xs-1">
+                </div>
+                <div class="b-section__bottle col-xs-5">
+                    <div class="b-bottle"></div>
+                    <img class="b-bottle__label" src="/img/label_12.png">
+                    <img class="b-bottle__label-bg" src="/img/label_bg_12.png">
+                </div>
+                <div class="b-section__text col-xs-6">
+                    <h1 class="b-section__title">BLACK RAY</h1>
+                    <h2 class="b-section__title_second">IPA</h2>
+                    <p>В аромате борьба мультифрукта с шоколадом. Во вкусе чернослив, тропические фрукты, лёгкий шоколад.</p>
+                    <p><strong>Хранить при температуре</strong> от 1 до 6 градусов.</p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Плотность</div>
+                            <div class="b-sort__value">20% OG</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Алкоголь</div>
+                            <div class="b-sort__value">8,5% ABV</div>                        
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="b-sort__ttl">Горечь</div>
+                            <div class="b-sort__value">70 IBU</div>
+                        </div>
+                    </div>
+                    <p><a href="#" class="btn btn-default btn-lg b-sendbtn" data-id="blackray" data-toggle="modal" data-target="#modal_send">Оставить заявку</a>
+                        &nbsp;
+                        <?=$aData->blackray === true ? 'в наличии' : 'ожидается '.date('d.m.Y', $aData->blackray);?>
+                        <?=$_SESSION['auth'] ? '<button class="btn btn-primary btn-sm change_btn" data-id="blackray">изменить</button>':''?>
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="b-section" style="background: #ba5619;" id="section_sitra">
             <div class="row">
                 <div class="b-section__text col-xs-1">
@@ -562,7 +634,9 @@ if (isset($_GET['send'])) {
                             <div class="form-inline">
                                 <div class="form-group" id="beerSelectPanel">
                                     <select id="beerSelect" class="form-control">
-                                        <option value="sitra" data-img="/img/label_9.png" selected="selected">EXTRA CITRA IPA</option>
+                                        <option value="quadrupel" data-img="/img/label_11.png" selected="selected">QUADRUPEL BELGIAN STYLE</option>
+                                        <option value="blackray" data-img="/img/label_12.png">BLACK RAY IPA</option>
+                                        <option value="sitra" data-img="/img/label_9.png">EXTRA CITRA IPA</option>
                                         <option value="hopwood" data-img="/img/label_10.png">HOP&WOOD Strong Lager</option>
                                         <option value="greenwich" data-img="/img/label_1.png">GREENWICH English Strong Ale</option>
                                         <option value="belgian" data-img="/img/label_2.png">BELGIAN Blonde Ale</option>
