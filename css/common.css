@@ -37,6 +37,7 @@ body {
 }
 .b-photocontainer {
     position: relative;
+    border-bottom: 5px solid #440404;
 }
 .b-phone {
     position: absolute;
@@ -61,13 +62,13 @@ body {
     text-align: right;    
 }
 .b-promo {
-    background: #000 url(../img/logo_white.png) 100px 20px no-repeat;
-    color: #fff;
-    padding-left: 270px;
-    padding-top: 15px; 
-    padding-bottom: 15px; 
-    padding-right: 60px;
+    position: absolute;
+    color: #933;
+    text-align:right;
     font-size: 1.33em;
+    right: 20px; 
+    bottom: 10px; 
+    width: 50%
 }
 .b-section {
     padding-top: 20px;
