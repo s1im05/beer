@@ -149,7 +149,7 @@ if (isset($_GET['send'])) {
             </div>
         </nav>
         <div class="b-photocontainer">
-            <img src="/img/photo.jpg" class="b-photo" />
+            <img src="/img/photo.jpg?v=1" class="b-photo" />
             <div class="b-phone">
                 <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
                 &nbsp;
