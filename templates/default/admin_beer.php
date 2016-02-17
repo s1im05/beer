@@ -25,12 +25,12 @@
                             <strong>IBU:</strong> <?=$aBeer['ibu']?> 
                         </p>
                         <p>
+                            <button class="btn btn-primary edit">Редактировать свойства</button>
                             <? if ($aBeer['show']):?>
                                 <button class="btn btn-danger sort_toggle" data-show="0">Не отображать на сайте</button>
                             <? else :?>
                                 <button class="btn btn-info sort_toggle" data-show="1">Отображать на сайте</button>
                             <? endif;?>
-                            <button class="btn btn-primary edit">Редактировать свойства</button>
                         </p>
                     </div>
                 </div>

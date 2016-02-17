@@ -31,7 +31,7 @@ class AdminBeer extends Admin {
             $this->view->assign('mRequest', 'true');
         }
         
-        if (isset($_POST['id']) && !$_POST['id']){
+        if (isset($_POST['id']) && !$_POST['id']){ // add beer
             if ($iId    = $this->db->query("INSERT INTO
                                 ?_sort
                             SET
@@ -61,6 +61,37 @@ class AdminBeer extends Admin {
             } else {
                 $this->view->assign('sError', 'Ошибка при добавлении, проверьте правильность ввода');
             }
+        }
+        
+        if (isset($_POST['id']) && $_POST['id']){ // edit beer
+            $this->db->query("UPDATE LOW_PRIORITY
+                                            ?_sort
+                                        SET
+                                            title   = ?,
+                                            title_sub    = ?,
+                                            text    = ?,
+                                            date_e  = ?,
+                                            color   = ?,
+                                            type    = ?,
+                                            og      = ?,
+                                            abv     = ?,
+                                            ibu     = ?,
+                                            available   = ?d
+                                        WHERE
+                                            id  = ?d
+                                        LIMIT 1;",
+                                        trim($_POST['title']),
+                                        trim($_POST['title_sub']),
+                                        trim($_POST['text']),
+                                        $_POST['date_e'] ? date('Y-m-d', strtotime($_POST['date_e'])) : '',
+                                        trim($_POST['color']),
+                                        $_POST['type'],
+                                        trim($_POST['og']),
+                                        trim($_POST['abv']),
+                                        trim($_POST['ibu']),
+                                        $_POST['available'],
+                                        $_POST['id']);
+            $this->view->assign('sSuccess', 'Изменения сохранены');
         }
         
         $aData  = $this->db->select("SELECT * FROM ?_sort ORDER BY `sort` ASC;");

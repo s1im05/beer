@@ -34,14 +34,16 @@
                 <a class="btn btn-md b-btnpadded btn-default pull-right hidden-xs" href="/adm_panel_logout"><i class="fa fa-fw fa-sign-out"></i></a>
             </div>
         </nav>
+        
+        <? if ($sSuccess) :?>
+            <div class="alert alert-success" role="alert"><?=$sSuccess?></div>
+        <? endif;?>
+        <? if ($sError) :?>
+            <div class="alert alert-danger" role="alert"><?=$sError?></div>
+        <? endif;?>
+        
         <div class="panel">
             <div class="panel-body">
-                <? if ($sSuccess) :?>
-                    <p class="text-success"><?=$sSuccess?></p>
-                <? endif;?>
-                <? if ($sError) :?>
-                    <p class="text-danger"><?=$sError?></p>
-                <? endif;?>
                 <? include $template;?>
             </div>
         </div>
