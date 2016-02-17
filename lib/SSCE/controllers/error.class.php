@@ -1,5 +1,7 @@
 <?php
-class Error_Controller extends Controller {
+namespace SSCE\Controllers;
+
+class Error extends Base {
     
     public function indexAction(){
         $aPath = $this->request->getPath();
