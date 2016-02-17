@@ -13,6 +13,18 @@
             "path": "\\/adm_panel",
             "controller": "admin",
             "action": "index"
+        },{
+            "path": "\\/adm_panel_logout",
+            "controller": "admin",
+            "action": "logout"
+        },{
+            "path": "\\/adm_panel\\/beer",
+            "controller": "adminBeer",
+            "action": "index"
+        },{
+            "path": "\\/adm_panel\\/address",
+            "controller": "adminAddress",
+            "action": "index"
         }
     ]
 }

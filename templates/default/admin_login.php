@@ -8,14 +8,14 @@
     
     <link rel="stylesheet" type="text/css" href="<?=$path?>/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=$path?>/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?=$path?>/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="<?=$path?>/css/admin.css" />
     
     <script type="text/javascript" src="<?=$path?>/js/jquery.min.js"></script>
     <script type="text/javascript" src="<?=$path?>/js/bootstrap.min.js"></script>
 </head>
-<body class="b-errorbody">
+<body class="b-loginbody">
     <div class="container">
-        <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 ">
+        <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
             <div class="panel">
                 <form action="/adm_panel" method="post" class="b-loginform">
                     <h3>Введите свой логин и пароль</h3>

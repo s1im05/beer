@@ -3,7 +3,8 @@ namespace SSCE\Controllers;
 
 class Admin extends Base {
     
-    protected $_sLayout = 'admin.php';
+    protected $_sLayout     = 'admin.php';
+    protected $_sTemplate   = 'admin_home.php';
     
     public function indexAction(){
         
@@ -16,7 +17,11 @@ class Admin extends Base {
             $this->setLayout('admin_login.php');
             return;
         }
-        
+    }
+    
+    public function logoutAction(){
+        unset($_SESSION['adm_auth']);
+        $this->request->go('/adm_panel');
     }
     
     private function _isLogged(){
