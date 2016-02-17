@@ -15,6 +15,7 @@ class AdminBeer extends Admin {
 
             $this->setLayout('ajax_layout_json.php');
             $this->view->assign('mRequest', $aData);
+            return;
         }
         
         if (isset($_POST['pos']) && isset($_POST['id'])){
@@ -22,6 +23,7 @@ class AdminBeer extends Admin {
             
             $this->setLayout('ajax_layout_json.php');
             $this->view->assign('mRequest', 'true');
+            return;
         }
         
         if (isset($_POST['show']) && isset($_POST['id'])){
@@ -29,6 +31,7 @@ class AdminBeer extends Admin {
             
             $this->setLayout('ajax_layout_json.php');
             $this->view->assign('mRequest', 'true');
+            return;
         }
         
         if (isset($_POST['id']) && !$_POST['id']){ // add beer
@@ -61,9 +64,7 @@ class AdminBeer extends Admin {
             } else {
                 $this->view->assign('sError', 'Ошибка при добавлении, проверьте правильность ввода');
             }
-        }
-        
-        if (isset($_POST['id']) && $_POST['id']){ // edit beer
+        } elseif (isset($_POST['id']) && $_POST['id']){ // edit beer
             $this->db->query("UPDATE LOW_PRIORITY
                                             ?_sort
                                         SET
