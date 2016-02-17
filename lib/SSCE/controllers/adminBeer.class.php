@@ -8,7 +8,16 @@ class AdminBeer extends Admin {
     public function indexAction(){
         parent::indexAction();
         
-        if (isset($_POST['add'])){
+        if (isset($_GET['sort'])){
+            if ($aData  = $this->db->selectRow("SELECT * FROM ?_sort WHERE id = ?d LIMIT 1;", $_GET['sort'])){
+                $aData['date_e']    = date('d.m.Y', strtotime($aData['date_e']));
+            }
+
+            $this->setLayout('ajax_layout_json.php');
+            $this->view->assign('mRequest', $aData);
+        }
+        
+        if (isset($_POST['id']) && !$_POST['id']){
             if ($iId    = $this->db->query("INSERT INTO
                                 ?_sort
                             SET
@@ -41,7 +50,6 @@ class AdminBeer extends Admin {
         }
         
         $aData  = $this->db->select("SELECT * FROM ?_sort ORDER BY `sort` ASC;");
-        
         
         $this->view->assign('sMenuActive',  'beer');
         $this->view->assign('aData',        $aData);

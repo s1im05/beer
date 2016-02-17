@@ -1,5 +1,5 @@
 <p>
-    <button class="btn btn-success" data-toggle="modal" data-target="#addSort">Добавить сорт</button>
+    <button class="btn btn-success" id="add_sort">Добавить сорт</button>
     <button class="btn btn-default hidden" id="save_order">Сохранить порядок</button>
 </p>
 <? if ($aData) :?>
@@ -24,7 +24,7 @@
                             <strong>ABV:</strong> <?=$aBeer['abv']?>%, 
                             <strong>IBU:</strong> <?=$aBeer['ibu']?> 
                         </p>
-                        <p><button class="btn btn-primary">Изменить</button></p>
+                        <p><button class="btn btn-primary edit">Изменить</button></p>
                     </div>
                 </div>
             </div>
@@ -40,11 +40,8 @@
     <div class="modal-dialog">
         <form method="post" enctype="multipart/form-data">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Добавить сорт</h4>
-            </div>
             <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="form-group">
                     <label for="title">Заголовок</label>
                     <input type="text" class="form-control" required="required" id="title" name="title" placeholder="Заголовок">
@@ -59,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Обложка/изображение</label>
-                    <input type="file" name="image" required="required" id="image">
+                    <input type="file" name="image" id="image">
                 </div>
                 <div class="form-group form-inline">
                     <label for="color">Цвет поля под обложкой</label>
@@ -72,36 +69,20 @@
                 </div>
                 <div class="form-group">
                     <label>Тип пива для отображения</label>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="type" value="light" checked="checked">
-                            светлое
-                        </label>
-                        &nbsp;
-                        <label>
-                            <input type="radio" name="type" value="red">
-                            красное
-                        </label>
-                        &nbsp;
-                        <label>
-                            <input type="radio" name="type" value="dark">
-                            темное
-                        </label>
-                    </div>
+                    <select name="type" class="form-control">
+                        <option value="light">светлое</option>
+                        <option value="red">красное</option>
+                        <option value="dark">темное</option>
+                    </select>
                 </div>                
                 <div class="form-group">
                     <label>Имеется в наличии</label>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="available" value="1" checked="checked">
-                            имеется
-                        </label>
-                    </div>
-                    <div class="radio form-inline">
-                        <label>
-                            <input type="radio" name="available" value="0">
-                            ожидается <span id="date_e" class="hidden"><input type="text" class="form-control" id="date_e_input" name="date_e" value="<?=date('d.m.Y')?>"></span>
-                        </label>
+                    <div class="form-inline">
+                        <select name="available" class="form-control">
+                            <option value="1">имеется</option>
+                            <option value="0">ожидается</option>
+                        </select>
+                        <span id="date_e" class="hidden"><input type="text" class="form-control" id="date_e_input" name="date_e" value="<?=date('d.m.Y')?>"></span>
                     </div>
                 </div>
                 <div class="form-inline">
@@ -120,7 +101,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" name="add" class="btn btn-primary">Добавить</button>
+                <input type="hidden" name="id">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
             </div>
         </div>
@@ -130,8 +112,8 @@
 
 <script type="text/javascript">
     $(function(){
-        $(':radio[name=available]').on('change', function(e){
-            $(':radio[name=available]:checked').val() === '1' ? $('#date_e').addClass('hidden') : $('#date_e').removeClass('hidden');
+        $(':input[name=available]').on('change', function(e){
+            $(this).val() === '1' ? $('#date_e').addClass('hidden') : $('#date_e').removeClass('hidden');
         });
         
         $('#date_e_input').datepicker({
@@ -152,6 +134,31 @@
         
         $('#color').on('input', function(){
             $('#color_icon').css('background', '#'+$(this).val());
+        });
+        
+        $('#add_sort').on('click', function(e){
+            e.preventDefault();
+            $('#addSort').find(':input').val('');
+            $('#addSort').modal();
+        });
+        
+        $(document).on('click', '.edit', function(e){
+            e.preventDefault();
+            var sId     = $(this).closest('.panel').data('id'),
+                self    = this;
+            $(this).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+            $.get('/adm_panel/beer', {'sort': sId}, function(data){
+                if (data){
+                    for (var sKey in data){
+                        var inpt    = $('#addSort').find(':input[name='+sKey+']');
+                        if (inpt.length && sKey !== 'image'){
+                            inpt.val(data[sKey]).trigger('input').trigger('change');
+                        }
+                    }
+                    $('#addSort').modal();
+                }
+                $(self).prop('disabled', false).find('.fa').remove();
+            }, 'json');
         });
     });
 </script>

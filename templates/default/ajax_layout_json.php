@@ -1,2 +1,2 @@
 <?php
-echo json_encode($sRequest);
+echo json_encode($mRequest);
