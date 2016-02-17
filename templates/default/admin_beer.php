@@ -24,7 +24,14 @@
                             <strong>ABV:</strong> <?=$aBeer['abv']?>%, 
                             <strong>IBU:</strong> <?=$aBeer['ibu']?> 
                         </p>
-                        <p><button class="btn btn-primary edit">Изменить</button></p>
+                        <p>
+                            <? if ($aBeer['show']):?>
+                                <button class="btn btn-danger sort_toggle" data-show="0">Не отображать на сайте</button>
+                            <? else :?>
+                                <button class="btn btn-info sort_toggle" data-show="1">Отображать на сайте</button>
+                            <? endif;?>
+                            <button class="btn btn-primary edit">Редактировать свойства</button>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -112,6 +119,15 @@
 
 <script type="text/javascript">
     $(function(){
+        
+        var btnDisable  = function(btn){
+                $(btn).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+            },
+            btnEnable  = function(btn){
+                return $(btn).prop('disabled', false).find('.fa').remove().end();
+            };
+            
+        
         $(':input[name=available]').on('change', function(e){
             $(this).val() === '1' ? $('#date_e').addClass('hidden') : $('#date_e').removeClass('hidden');
         });
@@ -131,7 +147,7 @@
         
         $('#save_order').on('click', function(e){
             e.preventDefault();
-            $(this).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+            btnDisable(this);
             
             var iCnt    = 0,
                 tmp     = function saveSort(jqThis){
@@ -142,7 +158,7 @@
                     if (jqThis.next().length){
                         saveSort(jqThis.next());
                     } else {
-                        $('#save_order').prop('disabled', false).addClass('hidden').find('.fa').remove();
+                        btnEnable($('#save_order')).addClass('hidden')
                     }
                 });
                 
@@ -163,7 +179,7 @@
             e.preventDefault();
             var sId     = $(this).closest('.panel').data('id'),
                 self    = this;
-            $(this).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+            btnDisable(this);
             $.get('/adm_panel/beer', {'sort': sId}, function(data){
                 if (data){
                     for (var sKey in data){
@@ -174,8 +190,19 @@
                     }
                     $('#addSort').modal();
                 }
-                $(self).prop('disabled', false).find('.fa').remove();
+                btnEnable(self);
             }, 'json');
+        });
+        
+        $(document).on('click', '.sort_toggle', function(e){
+            e.preventDefault();
+            btnDisable(this);
+            $.post('/adm_panel/beer',{
+                'show': $(this).data('show'),
+                'id':   $(this).closest('.panel').data('id')
+            }, function(){
+                window.location.href    = '/adm_panel/beer';
+            });
         });
     });
 </script>

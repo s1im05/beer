@@ -10,7 +10,7 @@ class AdminBeer extends Admin {
         
         if (isset($_GET['sort'])){
             if ($aData  = $this->db->selectRow("SELECT * FROM ?_sort WHERE id = ?d LIMIT 1;", $_GET['sort'])){
-                $aData['date_e']    = date('d.m.Y', strtotime($aData['date_e']));
+                $aData['date_e']    = $aData['date_e'] == '0000-00-00' ? '' : date('d.m.Y', strtotime($aData['date_e']));
             }
 
             $this->setLayout('ajax_layout_json.php');
@@ -19,6 +19,13 @@ class AdminBeer extends Admin {
         
         if (isset($_POST['pos']) && isset($_POST['id'])){
             $this->db->query("UPDATE LOW_PRIORITY ?_sort SET `sort`   = ?d WHERE id = ?d LIMIT 1;", $_POST['pos'], $_POST['id']);
+            
+            $this->setLayout('ajax_layout_json.php');
+            $this->view->assign('mRequest', 'true');
+        }
+        
+        if (isset($_POST['show']) && isset($_POST['id'])){
+            $this->db->query("UPDATE LOW_PRIORITY ?_sort SET `show`   = ?d WHERE id = ?d LIMIT 1;", $_POST['show'], $_POST['id']);
             
             $this->setLayout('ajax_layout_json.php');
             $this->view->assign('mRequest', 'true');
@@ -42,7 +49,7 @@ class AdminBeer extends Admin {
                             trim($_POST['title']),
                             trim($_POST['title_sub']),
                             trim($_POST['text']),
-                            date('Y-m-d', strtotime($_POST['date_e'])),
+                            $_POST['date_e'] ? date('Y-m-d', strtotime($_POST['date_e'])) : '',
                             trim($_POST['color']),
                             '',
                             $_POST['type'],
