@@ -1,15 +1,32 @@
 <p>
     <button class="btn btn-success" data-toggle="modal" data-target="#addSort">Добавить сорт</button>
     <button class="btn btn-default hidden" id="save_order">Сохранить порядок</button>
-    
 </p>
 <? if ($aData) :?>
     <div id="sortable">
     <? foreach ($aData as $aBeer) :?>
         <div class="panel panel-default sortable" data-id="<?=$aBeer['id']?>">
-            <div class="panel-heading"><?=$aBeer['title']?></div>
+            <div class="panel-heading">
+                <?=$aBeer['title']?> / <?=$aBeer['title_sub']?>
+            </div>
             <div class="panel-body">
-                Panel content
+                <div class="media">
+                    <div class="media-left">
+                        <div class="bg" style="background: #<?=$aBeer['color']?>">
+                            <img class="bg-img" src="<?=$aBeer['image']?>">
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <p><strong>Описание:</strong> <?=$aBeer['text']?></p>
+                        <p>
+                            <strong>Тип:</strong> <? $a = array('light' => 'светлое', 'red' => 'красное', 'dark' => 'темное'); echo $a[$aBeer['type']];?>, 
+                            <strong>OG:</strong> <?=$aBeer['og']?>%, 
+                            <strong>ABV:</strong> <?=$aBeer['abv']?>%, 
+                            <strong>IBU:</strong> <?=$aBeer['ibu']?> 
+                        </p>
+                        <p><button class="btn btn-primary">Изменить</button></p>
+                    </div>
+                </div>
             </div>
         </div>
     <? endforeach?>
@@ -46,7 +63,12 @@
                 </div>
                 <div class="form-group form-inline">
                     <label for="color">Цвет поля под обложкой</label>
-                    <div class="bfh-colorpicker" data-name="color"></div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="colorpicker-icon" id="color_icon"></span>
+                        </span>
+                        <input type="text" name="color" class="form-control" id="color" value="000000" maxlength="6" size="6">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Тип пива для отображения</label>
@@ -126,6 +148,10 @@
         $('#save_order').on('click', function(e){
             e.preventDefault();
             $(this).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+        });
+        
+        $('#color').on('input', function(){
+            $('#color_icon').css('background', '#'+$(this).val());
         });
     });
 </script>

@@ -13,8 +13,8 @@ class AdminBeer extends Admin {
                                 ?_sort
                             SET
                                 title   = ?,
+                                title_sub    = ?,
                                 text    = ?,
-                                text_sub    = ?,
                                 date_e  = ?,
                                 color   = ?,
                                 image   = ?,
@@ -24,8 +24,8 @@ class AdminBeer extends Admin {
                                 ibu     = ?,
                                 available   = ?d",
                             trim($_POST['title']),
+                            trim($_POST['title_sub']),
                             trim($_POST['text']),
-                            trim($_POST['text_sub']),
                             date('Y-m-d', strtotime($_POST['date_e'])),
                             trim($_POST['color']),
                             '',
