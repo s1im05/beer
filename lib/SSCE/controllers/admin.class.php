@@ -29,7 +29,7 @@ class Admin extends Base {
     }
     
     private function _login($sLogin, $sPass){
-        if ($sLogin === 'admin' && $sPass === 'pass'){
+        if ($sLogin === $this->config->project->login && md5($sPass.$this->config->project->salt) === $this->config->project->pass){
             $_SESSION['adm_auth']   = true;
             $this->request->refresh();
         } else {

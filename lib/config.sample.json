@@ -4,15 +4,18 @@
         "description":  "Enter something useful here",
         "version":      "0.1",
         "locale":       "ru_RU.UTF-8",
-        "postsppage":   "20"
+        "postsppage":   "20",
+        "login":        "admin",
+        "salt":         "fsdfs$%^GREnrteRT3ABL<K*&*&*5a",
+        "pass":         "83f9a83f4dc1f34ccb40ec6f1c544ef8"
     },
     "db": {
         "lib_path": "/lib/DbSimple",
         "host": "127.0.0.1",
         "user": "root",
         "password": "",
-        "database": "tyampuru",
-        "table_prefix": "tyampu__"
+        "database": "beer",
+        "table_prefix": "beer__"
     },
     "image": {
         "width": 800,
@@ -21,11 +24,6 @@
     },
     "templates": {
         "path": "/templates/default"
-    },
-    "loginza": {
-        "id":   0,
-        "sec":  "",
-        "url":  "http://loginza.ru/api/authinfo"
     },
     "router": {
         "path": "/lib/routes.json"
