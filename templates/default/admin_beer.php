@@ -1,4 +1,22 @@
-<p><a class="btn btn-success" data-toggle="modal" data-target="#addSort">Добавить сорт</a></p>
+<p>
+    <button class="btn btn-success" data-toggle="modal" data-target="#addSort">Добавить сорт</button>
+    <button class="btn btn-default hidden" id="save_order">Сохранить порядок</button>
+    
+</p>
+<? if ($aData) :?>
+    <div id="sortable">
+    <? foreach ($aData as $aBeer) :?>
+        <div class="panel panel-default sortable" data-id="<?=$aBeer['id']?>">
+            <div class="panel-heading"><?=$aBeer['title']?></div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+    <? endforeach?>
+    </div>
+<? else :?>
+    <p>Нет данных для отображения</p>
+<? endif;?>
 
 
 <div class="modal fade" tabindex="-1" role="dialog" id="addSort">
@@ -11,8 +29,12 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="title">Название</label>
-                    <input type="text" class="form-control" required="required" id="title" name="title" placeholder="Название">
+                    <label for="title">Заголовок</label>
+                    <input type="text" class="form-control" required="required" id="title" name="title" placeholder="Заголовок">
+                </div>
+                <div class="form-group">
+                    <label for="title_sub">Подзаголовок</label>
+                    <input type="text" class="form-control" required="required" id="title_sub" name="title_sub" placeholder="Подзаголовок">
                 </div>
                 <div class="form-group">
                     <label for="text">Описание</label>
@@ -27,16 +49,36 @@
                     <div class="bfh-colorpicker" data-name="color"></div>
                 </div>
                 <div class="form-group">
+                    <label>Тип пива для отображения</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="type" value="light" checked="checked">
+                            светлое
+                        </label>
+                        &nbsp;
+                        <label>
+                            <input type="radio" name="type" value="red">
+                            красное
+                        </label>
+                        &nbsp;
+                        <label>
+                            <input type="radio" name="type" value="dark">
+                            темное
+                        </label>
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label>Имеется в наличии</label>
                     <div class="radio">
                         <label>
                             <input type="radio" name="available" value="1" checked="checked">
-                            Есть в наличии
+                            имеется
                         </label>
                     </div>
-                    <div class="radio">
+                    <div class="radio form-inline">
                         <label>
                             <input type="radio" name="available" value="0">
-                            Нет в наличии <span id="date_e" class="hidden">, ожидается: <input type="text" class="form-control" id="date_e_input" name="date_e" value="<?=date('d.m.Y')?>"></span>
+                            ожидается <span id="date_e" class="hidden"><input type="text" class="form-control" id="date_e_input" name="date_e" value="<?=date('d.m.Y')?>"></span>
                         </label>
                     </div>
                 </div>
@@ -59,10 +101,10 @@
                 <button type="submit" name="add" class="btn btn-primary">Добавить</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
             </div>
-        </div><!-- /.modal-content -->
+        </div>
         </form>
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+</div>
 
 <script type="text/javascript">
     $(function(){
@@ -74,5 +116,34 @@
             'dateFormat': 'dd.mm.yy',
             'firstDay': 1
         });
+        
+        $("#sortable").sortable({
+            'stop': function(){
+                $('#save_order').removeClass('hidden');
+            }
+        });
+        
+        $('#save_order').on('click', function(e){
+            e.preventDefault();
+            $(this).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+        });
     });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,6 +38,12 @@
         </nav>
         <div class="panel">
             <div class="panel-body">
+                <? if ($sSuccess) :?>
+                    <p class="text-success"><?=$sSuccess?></p>
+                <? endif;?>
+                <? if ($sError) :?>
+                    <p class="text-danger"><?=$sError?></p>
+                <? endif;?>
                 <? include $template;?>
             </div>
         </div>
