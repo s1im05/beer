@@ -1,0 +1,33 @@
+{
+    "project": {
+        "title":        "My Project",
+        "description":  "Enter something useful here",
+        "version":      "0.1",
+        "locale":       "ru_RU.UTF-8",
+        "postsppage":   "20"
+    },
+    "db": {
+        "lib_path": "/lib/DbSimple",
+        "host": "127.0.0.1",
+        "user": "root",
+        "password": "",
+        "database": "tyampuru",
+        "table_prefix": "tyampu__"
+    },
+    "image": {
+        "width": 800,
+        "thumb_width": 200,
+        "thumb_height": 120
+    },
+    "templates": {
+        "path": "/templates/default"
+    },
+    "loginza": {
+        "id":   0,
+        "sec":  "",
+        "url":  "http://loginza.ru/api/authinfo"
+    },
+    "router": {
+        "path": "/lib/routes.json"
+    }
+}

@@ -1,0 +1,53 @@
+/* common */
+body {
+    font-family: Calibri, sans-serif;
+    background: #fff;
+}
+a {
+    /*color: #9C5E39;*/
+}
+a:hover, a:focus {
+    /*color: #9C5E39;*/
+    text-decoration: underline;
+}
+
+/* blocks */
+.b-errorbody {
+    padding: 100px 0;
+}
+
+.b-navbtn {
+    margin-right: 1em;
+}
+.b-sign, .b-sign:hover {
+    color: #696;
+    text-decoration: underline;
+}
+.b-post__title {
+    margin-top: 0;
+}
+.b-navtop {
+    padding: 1em 0;
+}
+.b-navtop__button {
+    border: none;
+}
+.b-center {
+    margin-bottom: 3em;
+}
+.b-footer {
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    background: #f9f9f9;
+    color: #999;
+    text-align: center;
+}
+
+
+/* helpers */
+.h-shadow {
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.h-inline {
+    display: inline;
+}

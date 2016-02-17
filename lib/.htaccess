@@ -1,2 +1,1 @@
 deny from all
-AddHandler application/x-httpd-php-source php

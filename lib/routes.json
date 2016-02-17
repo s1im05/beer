@@ -1,0 +1,32 @@
+{"routes":
+    [
+        {
+            "path": "\\/404",
+            "controller": "error",
+            "action": "error404",
+            "header": "HTTP/1.0 404 Not Found"
+        },{
+            "path": "\\/",
+            "controller": "blog",
+            "action": "all"
+        },{
+            "path": "\\/home",
+            "controller": "home",
+            "action": "index"
+        },{
+            "path": "\\/search\\/(.{3,255})",
+            "controller": "search",
+            "action": "search",
+            "params": ["query"]
+        },{
+            "path": "\\/logout",
+            "controller": "chapter",
+            "action": "all"
+        },{
+            "path": "\\/rss",
+            "controller": "rss",
+            "action": "rss",
+            "header": "Content-type: application/xhtml+xml; charset=UTF-8"
+        }
+    ]
+}
