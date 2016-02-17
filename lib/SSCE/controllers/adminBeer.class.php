@@ -17,6 +17,13 @@ class AdminBeer extends Admin {
             $this->view->assign('mRequest', $aData);
         }
         
+        if (isset($_POST['pos']) && isset($_POST['id'])){
+            $this->db->query("UPDATE LOW_PRIORITY ?_sort SET `sort`   = ?d WHERE id = ?d LIMIT 1;", $_POST['pos'], $_POST['id']);
+            
+            $this->setLayout('ajax_layout_json.php');
+            $this->view->assign('mRequest', 'true');
+        }
+        
         if (isset($_POST['id']) && !$_POST['id']){
             if ($iId    = $this->db->query("INSERT INTO
                                 ?_sort

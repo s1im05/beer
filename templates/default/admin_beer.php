@@ -123,13 +123,30 @@
         
         $("#sortable").sortable({
             'stop': function(){
-                $('#save_order').removeClass('hidden');
+                if ($('#sortable > *').length > 1){
+                    $('#save_order').removeClass('hidden');
+                }
             }
         });
         
         $('#save_order').on('click', function(e){
             e.preventDefault();
             $(this).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+            
+            var iCnt    = 0,
+                tmp     = function saveSort(jqThis){
+                $.post('/adm_panel/beer', {
+                    'pos':  iCnt++,
+                    'id':   jqThis.data('id')
+                }, function(){
+                    if (jqThis.next().length){
+                        saveSort(jqThis.next());
+                    } else {
+                        $('#save_order').prop('disabled', false).addClass('hidden').find('.fa').remove();
+                    }
+                });
+                
+            }($('#sortable > *:first'));
         });
         
         $('#color').on('input', function(){
