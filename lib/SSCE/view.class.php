@@ -31,14 +31,14 @@ class View {
         ob_end_flush();
         $this->assign($this->_sPathName,    $this->_sTemplatePath);
         $this->assign($this->_sTitleName,   $this->getTitle());
-        $this->assign($this->_sTemplateName, '.'.$this->_sTemplatePath.'/'.$this->getTemplate());
+        $this->assign($this->_sTemplateName, '.'.$this->_sTemplatePath.'/tpl/'.$this->getTemplate());
         foreach($this->_aVars as $sName => $mVal){
             $$sName = $mVal;
         }
         ob_start();
         error_reporting(0);
         require_once 'helpers/view.helper.php';
-        require '.'.$this->_sTemplatePath.'/'.$this->getLayout();
+        require '.'.$this->_sTemplatePath.'/tpl/'.$this->getLayout();
         $aData  = ob_get_contents();
         ob_clean();
         error_reporting(E_ALL ^ E_DEPRECATED);

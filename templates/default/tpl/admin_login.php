@@ -17,7 +17,7 @@
     <div class="container">
         <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
             <div class="panel">
-                <form action="/adm_panel" method="post" class="b-loginform">
+                <form method="post" class="b-loginform">
                     <h3>Введите свой логин и пароль</h3>
                     <? if ($sError) :?>
                         <p class="text-danger"><?=$sError?></p>
