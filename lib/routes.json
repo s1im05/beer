@@ -14,7 +14,7 @@
             "controller": "admin",
             "action": "index"
         },{
-            "path": "\\/adm_panel_logout",
+            "path": "\\/adm_panel\\/logout",
             "controller": "admin",
             "action": "logout"
         },{

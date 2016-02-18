@@ -21,7 +21,7 @@
         <nav class="navbar navbar-default">
             <div class="navbar-header">
                 <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-fw fa-bars"></i>
                 </button>
                 <a href="/adm_panel" class="navbar-brand">Панель управления</a>
             </div>
@@ -29,9 +29,9 @@
                 <ul class="nav navbar-nav">
                     <li <?=$sMenuActive == 'beer' ? 'class="active"':''?>><a href="/adm_panel/beer">Пиво</a></li>
                     <li <?=$sMenuActive == 'address' ? 'class="active"':''?>><a href="/adm_panel/address">Адреса</a></li>
-                    <li class="visible-xs"><a href="/adm_panel_logout">Выйти</a></li>
+                    <li class="visible-xs"><a href="/adm_panel/logout">Выйти</a></li>
                 </ul>
-                <a class="btn btn-md b-btnpadded btn-default pull-right hidden-xs" href="/adm_panel_logout"><i class="fa fa-fw fa-sign-out"></i></a>
+                <a class="btn btn-md b-btnpadded btn-default pull-right hidden-xs" href="/adm_panel/logout"><i class="fa fa-fw fa-sign-out"></i></a>
             </div>
         </nav>
         
