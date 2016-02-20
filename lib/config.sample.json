@@ -19,11 +19,10 @@
     },
     "mailer": {
         "path": "/lib/PHPMailer"
-    }
+    },
     "image": {
-        "width": 800,
-        "thumb_width": 200,
-        "thumb_height": 120
+        "width":    348,
+        "height":   400
     },
     "templates": {
         "path": "/templates/default"
