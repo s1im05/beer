@@ -1,5 +1,5 @@
 <? foreach ($aData as $aBeer) :?>
-<div class="b-section" style="background: #<?=$aBeer['color']?>;" id="section_<?=$aBeer['id']?>">
+<div class="b-section b-section-<?=$aBeer['text_color']==1?'white':'black';?>" style="background: #<?=$aBeer['color']?>;" id="section_<?=$aBeer['id']?>">
     <div class="row">
         <div class="b-section__text col-xs-6 col-xs-offset-1">
             <h1 class="b-section__title"><?=$aBeer['title']?></h1>

@@ -74,6 +74,15 @@
                         <input type="text" name="color" class="form-control" id="color" value="000000" maxlength="6" size="6">
                     </div>
                 </div>
+                <div class="form-group form-inline">
+                    <label for="color">Цвет текста заголовка и описания сорта</label>
+                    <div class="input-group">
+                        <select name="text_color" class="form-control">
+                            <option value="1" selected="selected">белый</option>
+                            <option value="0">черный</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Тип пива для отображения</label>
                     <select name="type" class="form-control">

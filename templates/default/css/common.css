@@ -128,10 +128,12 @@ body {
 }
 .b-section__text {
     font-size: 1.5em;
-    color: #fff;
     padding-right: 40px;
 }
-.b-section__text-black {
+.b-section-white {
+    color: #fff;
+}
+.b-section-black {
     color: #000;
 }
 .b-footer {
