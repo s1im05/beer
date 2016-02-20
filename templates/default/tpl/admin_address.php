@@ -30,6 +30,53 @@
 <? endif;?>
 
 
+<div class="modal fade" tabindex="-1" role="dialog" id="addAddress">
+    <div class="modal-dialog">
+        <form method="post" enctype="multipart/form-data" id="addAddressForm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="form-group">
+                    <label for="title">Заголовок</label>
+                    <input type="text" class="form-control" required="required" id="title" name="title" placeholder="Заголовок">
+                </div>
+                <div class="form-group">
+                    <label for="text">Описание</label>
+                    <textarea class="form-control" required="required" id="text" name="text" placeholder="Описание"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес</label>
+                    <textarea class="form-control" required="required" id="address" name="address" placeholder="Адрес"></textarea>
+                    <p class="help-block">название города Челябинск не вводить</p>
+                </div>
+                <div class="form-group">
+                    <label for="map">Координаты для карты</label>
+                    <div class="input-group">
+                        <input type="text" placeholder="Координаты для карты" id="map" name="map" class="form-control input-sm"> 
+                        <span class="input-group-addon btn b-search__btn" id="get_geo">вычислить по адресу</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="web">Адрес сайта</label>
+                    <input type="text" class="form-control" id="web" name="web" placeholder="Адрес сайта">
+                    <p class="help-block">вводить без http:// и www.</p>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Телефон">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="id" value="0">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+
 
 <script type="text/javascript">
     $(function(){
@@ -69,6 +116,23 @@
             }($('#sortable > *:first'));
         });
         
+        $(document).on('click', '.edit', function(e){
+            e.preventDefault();
+            var sId     = $(this).closest('.panel').data('id'),
+                self    = this;
+            btnDisable(this);
+            $.get('/adm_panel/address', {'place': sId}, function(data){
+                if (data){
+                    for (var sKey in data){
+                        var inpt    = $('#addAddressForm').find(':input[name='+sKey+']');
+                        inpt.val(data[sKey]).trigger('input').trigger('change');
+                    }
+                    $('#addAddress').modal();
+                }
+                btnEnable(self);
+            }, 'json');
+        });
+        
         $(document).on('click tap', '.place_delete', function(e){
             e.preventDefault();
             if (confirm('Вы действительно хотите удалить адрес?')){
@@ -83,11 +147,12 @@
             }
         });
         
-        $('#add_sort').on('click', function(e){
+        $('#add_address').on('click', function(e){
             e.preventDefault();
-            //$("#addSortForm")[0].reset();
-            //$("#addSortForm :input").trigger('change').trigger('input');
-            //$('#addSort').modal();
+            $("#addAddressForm")[0].reset();
+            $("#addAddressForm :input[name=id]").val(0);
+            $("#addAddressForm :input").trigger('change').trigger('input');
+            $('#addAddress').modal();
         });
     });
 </script>

@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="id">
+                <input type="hidden" name="id" value="0">
                 <button type="submit" class="btn btn-primary">Сохранить</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
             </div>
@@ -182,6 +182,7 @@
             e.preventDefault();
             $("#addSortForm")[0].reset();
             $("#addSortForm :input").trigger('change').trigger('input');
+            $("#addSortForm :input[name=id]").val(0);
             $('#addSort').modal();
         });
         
@@ -193,7 +194,7 @@
             $.get('/adm_panel/beer', {'sort': sId}, function(data){
                 if (data){
                     for (var sKey in data){
-                        var inpt    = $('#addSort').find(':input[name='+sKey+']');
+                        var inpt    = $('#addSortForm').find(':input[name='+sKey+']');
                         if (inpt.length && sKey !== 'image'){
                             inpt.val(data[sKey]).trigger('input').trigger('change');
                         }
