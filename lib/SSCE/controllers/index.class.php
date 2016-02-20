@@ -13,7 +13,9 @@ class Index extends Base {
     public function locationsAction(){
         $this->indexAction();
         $this->setTemplate('locations.tpl.php');
-        //..
+        
+        $aPlaces    = $this->db->select("SELECT * FROM ?_places ORDER BY `sort` ASC;");
+        $this->view->assign('aPlaces', $aPlaces);
     }
     
     public function sendAction(){

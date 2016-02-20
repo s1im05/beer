@@ -173,3 +173,15 @@ body {
 option:disabled {
     color: #ccc;
 }
+.b-locations {
+    background: #f9f9f9;
+}
+.b-map__big {
+    height: 500px;
+    border-bottom: 5px solid #440404;
+}
+.b-place {
+    padding: .3em 1em 1em 1em;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: -1px;
+}

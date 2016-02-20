@@ -64,6 +64,7 @@
                 <div class="form-group">
                     <label for="image">Обложка/изображение</label>
                     <input type="file" name="image" id="image">
+                    <p class="help-block">Размеры загруженного изображения будут изменены до 348х400. Чтобы не было искажений пропорций, постарайтесь подготовить исходные изображения с такими пропорциями в графическом редакторе.</p>
                 </div>
                 <div class="form-group form-inline">
                     <label for="color">Цвет поля под обложкой</label>
