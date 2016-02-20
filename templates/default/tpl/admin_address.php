@@ -4,13 +4,19 @@
 </p>
 <? if ($aData) :?>
     <div id="sortable">
-    <? foreach ($aData as $aBeer) :?>
-        <div class="panel panel-default sortable" data-id="<?=$aBeer['id']?>">
+    <? foreach ($aData as $aVal) :?>
+        <div class="panel panel-default sortable" data-id="<?=$aVal['id']?>">
             <div class="panel-heading">
-                <?=$aBeer['title']?>
+                <?=$aVal['title']?>
             </div>
             <div class="panel-body">
-                <p><strong>Описание:</strong> <?=$aBeer['text']?></p>
+                <p><strong>Описание:</strong> <?=$aVal['text']?></p>
+                <p><strong>Адрес:</strong> г.Челябинск, <?=$aVal['address']?></p>
+                <p>
+                    <strong>Телефон:</strong> <?=$aVal['phone']?$aVal['phone']:'не указан'?>;
+                    <strong>Адрес в интернете:</strong> <?=$aVal['web']?'<a href="http://'.$aVal['web'].'" target="_blank">'.$aVal['web'].'</a>':'не указан'?>;
+                    <strong>Координаты на Яндекс-картах:</strong> <?=$aVal['map']?$aVal['map']:'не указаны'?>;
+                </p>
                 <p>
                     <button class="btn btn-primary edit">Редактировать свойства</button>
                     <button class="btn btn-danger place_delete">Удалить</button>

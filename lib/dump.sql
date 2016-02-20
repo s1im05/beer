@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 20 2016 г., 14:17
+-- Время создания: Фев 20 2016 г., 14:52
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -24,12 +24,21 @@ CREATE TABLE IF NOT EXISTS `beer__places` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `text` text NOT NULL,
+  `address` text NOT NULL,
   `map` varchar(100) NOT NULL,
   `web` varchar(200) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `sort` smallint(6) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `beer__places`
+--
+
+INSERT INTO `beer__places` (`id`, `title`, `text`, `address`, `map`, `web`, `phone`, `sort`) VALUES
+(1, 'Кафе Пиво', 'Самое лучшее пиво только в кафе "Пиво"!', '', '', 'kafepivo.ru', '555-77-88', 0),
+(2, 'Крафтбург', 'Самый настоящий крафт только в "Крафтбурге"!', '', '', 'kraftburg.ru', '555-77-89', 1);
 
 -- --------------------------------------------------------
 
