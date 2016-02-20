@@ -34,6 +34,8 @@ class AdminBeer extends Admin {
             return;
         }
         
+        $sImage = $this->_uploadImage('image');
+        
         if (isset($_POST['id']) && !$_POST['id']){ // add beer
             if ($iId    = $this->db->query("INSERT INTO
                                 ?_sort
@@ -54,7 +56,7 @@ class AdminBeer extends Admin {
                             trim($_POST['text']),
                             $_POST['date_e'] ? date('Y-m-d', strtotime($_POST['date_e'])) : '',
                             trim($_POST['color']),
-                            '',
+                            $sImage ? $sImage : '',
                             $_POST['type'],
                             trim($_POST['og']),
                             trim($_POST['abv']),
@@ -77,6 +79,7 @@ class AdminBeer extends Admin {
                                             og      = ?,
                                             abv     = ?,
                                             ibu     = ?,
+                                            ".($sImage?"image   = '{$sImage}',":'')."
                                             available   = ?d
                                         WHERE
                                             id  = ?d
@@ -100,4 +103,23 @@ class AdminBeer extends Admin {
         $this->view->assign('sMenuActive',  'beer');
         $this->view->assign('aData',        $aData);
     }
+    
+    private function _uploadImage($sName){
+        if (isset($_FILES[$sName]) && $_FILES[$sName]['error'] == 0){
+            require_once ROOT.'/lib/Zebra_Image.php';
+            $oZebra =   new \Zebra_Image();
+            $sImage =   $this->config->templates->path.'/img/u/'.$_FILES[$sName]['name'];
+            
+            $oZebra->preserve_aspect_ratio   = false;
+            $oZebra->source_path    = $_FILES[$sName]['tmp_name'];
+            $oZebra->target_path    = ROOT.$sImage;
+            $oZebra->resize($this->config->image->width, $this->config->image->height, ZEBRA_IMAGE_BOXED);
+
+            return $sImage;
+        } else {
+            return false;
+        }
+    }
+    
+    
 }
