@@ -82,7 +82,7 @@
     $(function(){
         
         var btnDisable  = function(btn){
-                $(btn).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+                $(btn).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" /> ');
             },
             btnEnable  = function(btn){
                 return $(btn).prop('disabled', false).find('.fa').remove().end();
@@ -144,6 +144,29 @@
                 }, function(){
                     jqParent.remove();
                 });
+            }
+        });
+        
+        $('#get_geo').on('click', function(e){
+            if ($(this).prop('disabled')) return;
+            
+            if ($('#address').val()){
+                btnDisable(this);
+                var self = this;
+                
+                $.getJSON('http://geocode-maps.yandex.ru/1.x/?',{
+                    'geocode': 'г.Челябинск, '+$('#address').val(),
+                    'format':'json'
+                }, function(data){
+                    if (data && data.response.GeoObjectCollection.featureMember !== undefined && data.response.GeoObjectCollection.featureMember.length) {
+                        $('#map').val(data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos);
+                        btnEnable(self);
+                    } else {
+                        alert('К сожалению, по вашему запросу ничего не найдено');
+                    }
+                });
+            } else {
+                alert('Невозможно определить координаты. Сперва заполните поле "Адрес"');
             }
         });
         

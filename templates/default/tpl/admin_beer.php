@@ -130,7 +130,7 @@
     $(function(){
         
         var btnDisable  = function(btn){
-                $(btn).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" />&nbsp;');
+                $(btn).prop('disabled', true).prepend('<i class="fa fa-spinner fa-spin" /> ');
             },
             btnEnable  = function(btn){
                 return $(btn).prop('disabled', false).find('.fa').remove().end();
