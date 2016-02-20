@@ -69,10 +69,11 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Заказ продукции</a></li>
+                    <li><a href="/locations">Места продаж</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#modal_map">Схема проезда</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal_send">В корзину</a></li>
-                    <? if (isset($_SESSION['auth']) && $_SESSION['auth']) :?>
-                        <li><a href="?logout=1">Выход</a></li>
+                    <? if ($aData) :?>
+                        <li><a href="#" data-toggle="modal" data-target="#modal_send">В корзину</a></li>
                     <? endif;?>
                 </ul>
             </div>
@@ -80,13 +81,14 @@
         <div class="b-photocontainer">
             <img src="<?=$path?>/img/photo.jpg?v=1" class="b-photo" />
             <div class="b-phone">
-                <i class="fa fa-phone-square"></i>
-                &nbsp;
-                +7(912)774-94-24
-            </div>
-            <div class="b-address">
+                <i class="fa fa-envelope"></i>&nbsp;
+                <a href="mailto:79127749424%40ya.ru">79127749424@ya.ru</a><br/>
+                
+                <i class="fa fa-phone-square"></i>&nbsp;
+                +7(912)774-94-24<br />
+                
                 ПИВОВАРНЯ БРАУВЕЛЬТ<br />
-                г. Челябинск,<br /> ул. Солнечная, д. 6-в
+                <small>г. Челябинск,<br /> ул. Солнечная, д. 6-в</small>
             </div>
             <div class="b-promo hidden-xs hidden-sm">
                 <p>Cпециальная линейка сортов пивоварни Brauwelt сварена в ограниченном количестве для истинных ценителей пива</p>
@@ -119,8 +121,9 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     2015 &copy; Brauwelt Brewery &mdash; крафтовое пиво в Челябинске<br />
-                    тел.: +7(912)774-94-24<br />
-                    г. Челябинск, ул. Солнечная, д. 6-в 
+                    г. Челябинск, ул. Солнечная, д. 6-в <br />
+                    <i class="fa fa-envelope"></i>&nbsp; <a href="mailto:79127749424%40ya.ru">79127749424@ya.ru</a><br />
+                    <i class="fa fa-phone-square"></i>&nbsp; +7(912)774-94-24<br />
                 </div>
             </div>
         </footer>
@@ -135,7 +138,8 @@
                 </div>
                 <div class="modal-body">
                     <p>По всем возникшим вопросам звоните по телефону: <strong>+7(912)774-94-24</strong></p>
-                    <div id="map_container" style="width: 570px; height: 400px;" data-map="55.204464 61.317429" data-title="Brauwelt Brewery"></div>
+                    <p>Или отправляйте свои сообщения по email: <a href="mailto:79127749424%40ya.ru">79127749424@ya.ru</a></p>
+                    <div id="map_container" data-sign="<?=$path?>/img/mapsign.png" style="width: 570px; height: 400px;" data-map="55.204464 61.317429" data-title="Brauwelt Brewery"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
@@ -144,59 +148,8 @@
         </div>
     </div>
     
-    <div class="modal fade" id="modal_send" tabindex="-1" role="dialog" aria-labelledby="modal_send_label">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="modal_send_label">Оставить заявку</h4>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="?send=1" id="mesForm">
-                        <div class="form-group">
-                            <label for="inpName">Ваше имя:</label>
-                            <input type="text" name="name" class="form-control" id="inpName" placeholder="Имя">
-                            <p class="help-block error-block hide">Заполните поле</p>
-                        </div>
-                        <div class="form-group">
-                            <label for="inpText">Содержание заявки:</label>
-                            <div class="form-inline">
-                                <div class="form-group" id="beerSelectPanel">
-                                    <select id="beerSelect" class="form-control">
-                                        <option value="quadrupel" data-img="<?=$path?>/img/label_11.png" selected="selected">QUADRUPEL BELGIAN STYLE</option>
-                                        <option value="blackray" data-img="<?=$path?>/img/label_12.png">BLACK RAY IPA</option>
-                                        <option value="sitra" data-img="<?=$path?>/img/label_9.png">EXTRA CITRA IPA</option>
-                                        <option value="hopwood" data-img="<?=$path?>/img/label_10.png">HOP&WOOD Strong Lager</option>
-                                        <option value="greenwich" data-img="<?=$path?>/img/label_1.png">GREENWICH English Strong Ale</option>
-                                        <option value="belgian" data-img="<?=$path?>/img/label_2.png">BELGIAN Blonde Ale</option>
-                                        <option value="apa" data-img="<?=$path?>/img/label_4.png">APA Single Hop Equinox</option>
-                                        <option value="amber" data-img="<?=$path?>/img/label_5.png">AMBER Ale</option>
-                                        <option value="hawaii" data-img="<?=$path?>/img/label_6.png">HAWAII Pale Ale</option>
-                                        <option value="citrus" data-img="<?=$path?>/img/label_7.png">CITRUS Belgian Wheat</option>
-                                        <option value="porter" data-img="<?=$path?>/img/label_8.png">PORTER Dark Beer</option>
-                                    </select> 
-                                    <button type="button" class="btn btn-success" id="beerAdd">добавить</button>
-                                    <p class="help-block error-block hide">Выберите хотя бы одну позицию</p>
-                                </div>
-                            </div>
-                            <div id="beerList" class="b-beerlist"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inpCont">Ваши комментарии к заказу и контактная информация:</label>
-                            <textarea class="form-control" name="contact" id="inpCont" rows="5"></textarea>
-                            <p class="help-block error-block hide">Заполните поле</p>
-                            <p class="help-block">Пожалуйста, перечислите ваши контактные данные в поле выше, чтобы мы могли в скором времени связаться с вами</p>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer" id="modalBtns">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Свернуть</button>
-                    <button type="button" class="btn btn-primary" id="mesSend">Отправить</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <? include 'cart.tpl.php';?>
+    
     <script type="text/javascript">
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

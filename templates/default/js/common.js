@@ -12,7 +12,7 @@
                 balloonContent: jqMapContainer.data('title')
             }, {
                 iconLayout: 'default#image',
-                iconImageHref: '/img/mapsign.png',
+                iconImageHref: jqMapContainer.data('sign'),
                 iconImageSize: [47, 56],
                 iconImageOffset: [-23, -56]
             });
@@ -49,7 +49,7 @@
                 });
             });
             
-            $('#modalBtns').html('<img src="/img/ajax.gif" alt="Отправка...">');
+            $('#modalBtns').prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i>&nbsp; Отправка...');
             $.ajax({
                 url: $('#mesForm').attr('action'),
                 method: 'post',
@@ -92,7 +92,7 @@
             e.preventDefault();
             var jqRow   = $(this).closest('.row');
             $('#beerSelect option').each(function(){
-                if (jqRow.data('id') === $(this).attr('value')) {
+                if (jqRow.data('id') == $(this).attr('value')) {
                     $(this).prop('disabled', false);
                 }
             });
@@ -107,7 +107,7 @@
         $(document).on('click', '.b-sendbtn', function(){
             var sId = $(this).data('id');
             $('#beerSelect option').each(function(){
-                if (sId === $(this).attr('value') && $(this).is(':not(:disabled)')) {
+                if (sId == $(this).attr('value') && $(this).is(':not(:disabled)')) {
                     $(this).prop('selected', true);
                     $('#beerAdd').trigger('click');
                 }

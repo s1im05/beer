@@ -45,7 +45,7 @@ body {
 }
 .b-phone {
     position: absolute;
-    font-size: 2.5em;
+    font-size: 1.85em;
     color: #fff;
     padding: .25em 1em;
     top: 20px;
@@ -53,6 +53,10 @@ body {
     font-weight: bold;
     background: #933;
     text-align: right;
+}
+.b-phone a {
+    color: #fff;
+    text-decoration: underline;
 }
 .b-address {
     position: absolute;
@@ -135,6 +139,10 @@ body {
     padding: 10px 20px 20px 20px;
     background: #440404;
     color: #caa;
+}
+.b-footer a{
+    color: #caa;
+    text-decoration: underline;
 }
 .b-sort__ttl {
     font-size: 16px;

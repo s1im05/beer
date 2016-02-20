@@ -6,6 +6,14 @@
             "action": "error404",
             "header": "HTTP/1.0 404 Not Found"
         },{
+            "path": "\\/locations",
+            "controller": "index",
+            "action": "locations"
+        },{
+            "path": "\\/cart\\/send",
+            "controller": "index",
+            "action": "send"
+        },{
             "path": "\\/",
             "controller": "index",
             "action": "index"

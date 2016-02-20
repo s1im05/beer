@@ -24,8 +24,8 @@ class Application extends Base {
         setlocale(LC_ALL , $this->config->project->locale);
         $this->_oView   = new View($this->config->templates->path);
         
-        require_once $_SERVER['DOCUMENT_ROOT'].$this->config->db->lib_path.'/Generic.php';
-        require_once $_SERVER['DOCUMENT_ROOT'].$this->config->db->lib_path.'/Mysql.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].$this->config->db->path.'/Generic.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].$this->config->db->path.'/Mysql.php';
         $this->_oDb = \DbSimple_Generic::connect("mysql://".$this->config->db->user.($this->config->db->password ? ":".$this->config->db->password:'' )."@".$this->config->db->host."/".$this->config->db->database);
         $this->db->setIdentPrefix($this->config->db->table_prefix);
         $this->db->query("SET NAMES utf8");

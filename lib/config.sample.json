@@ -10,13 +10,16 @@
         "pass":         "83f9a83f4dc1f34ccb40ec6f1c544ef8"
     },
     "db": {
-        "lib_path": "/lib/DbSimple",
+        "path": "/lib/DbSimple",
         "host": "127.0.0.1",
         "user": "root",
         "password": "",
         "database": "beer",
         "table_prefix": "beer__"
     },
+    "mailer": {
+        "path": "/lib/PHPMailer"
+    }
     "image": {
         "width": 800,
         "thumb_width": 200,
