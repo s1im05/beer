@@ -45,7 +45,7 @@
 
 <div class="modal fade" tabindex="-1" role="dialog" id="addSort">
     <div class="modal-dialog">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="addSortForm">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -180,7 +180,8 @@
         
         $('#add_sort').on('click', function(e){
             e.preventDefault();
-            $('#addSort').find(':input').val('');
+            $("#addSortForm")[0].reset();
+            $("#addSortForm :input").trigger('change').trigger('input');
             $('#addSort').modal();
         });
         
@@ -215,21 +216,3 @@
         });
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
