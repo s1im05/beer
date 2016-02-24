@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+error_reporting(E_ALL);
 define('ROOT', __DIR__);
 
 require_once 'lib/SSCE/base.class.php';
