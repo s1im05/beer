@@ -14,7 +14,7 @@
                 <? endif; ?>
                 <div class="row text-muted">
                     <? if ($aVal['address']) :?>
-                        <div class="col-sm-6">г.Челябинск, <?=$aVal['address']?></div>
+                        <div class="col-sm-6"><?=$aVal['address']?></div>
                     <? endif; ?>
                     <? if ($aVal['phone']) :?>
                         <div class="col-sm-2"><i class="fa fa-phone"></i> <?=$aVal['phone']?></div>
