@@ -14,7 +14,12 @@
                 <? endif; ?>
                 <div class="row text-muted">
                     <? if ($aVal['address']) :?>
-                        <div class="col-sm-6">г.Челябинск, <?=$aVal['address']?></div>
+                        <div class="col-sm-6">
+                            <?=$aVal['address']?>
+                            <? if ($aVal['map']) :?>
+                                <br /><a href="#ymap" class="btn btn-xs btn-default b-goto" data-goto="<?=$aVal['map']?>">показать на карте</a>
+                            <? endif;?>
+                        </div>
                     <? endif; ?>
                     <? if ($aVal['phone']) :?>
                         <div class="col-sm-2"><i class="fa fa-phone"></i> <?=$aVal['phone']?></div>
@@ -30,27 +35,34 @@
 </div>
 
 <script type="text/javascript">
-$(function(){
     // Yandex-maps API
+    var myMap;
     ymaps.ready(function(){
         var jqMapContainer  = $('#ymap');
-        if (!jqMapContainer.data('map-loaded')) {
-            var myMap   = new ymaps.Map(jqMapContainer.attr('id'), {
-                center:  [55.160283,61.400856], 
-                zoom: 10
-            });
-            jqMapContainer.data('map-loaded', true);
+
+        myMap   = new ymaps.Map(jqMapContainer.attr('id'), {
+            'center':  [55.160, 61.401], 
+            'zoom': 10
+        });
             
-            $('#places .b-place').each(function(){
-                var a = $(this).data('map').split(' ');
-                a.push(a.shift());
+        $('#places .b-place').each(function(){
+            var a = $(this).data('map').split(' ');
+            a.push(a.shift());
+            if (a.length == 2){
                 var myPlacemark = new ymaps.Placemark(a, { 
-                    hintContent: $(this).data('title'), 
-                    balloonContent: $(this).data('title')
+                    'hintContent': $(this).data('title'), 
+                    'balloonContent': $(this).data('title')
                 });
                 myMap.geoObjects.add(myPlacemark);
-            });
-        }    
+            }
+        });
     });
-});
+    
+    $(function(){
+        $(document).on('click', '.b-goto', function(e){
+            var a = $(this).data('goto').split(' ');
+            a.push(a.shift());
+            myMap.setCenter(a, 15);
+        });
+    });
 </script>

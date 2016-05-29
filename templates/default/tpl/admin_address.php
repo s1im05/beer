@@ -11,7 +11,7 @@
             </div>
             <div class="panel-body">
                 <p><strong>Описание:</strong> <?=$aVal['text']?></p>
-                <p><strong>Адрес:</strong> г.Челябинск, <?=$aVal['address']?></p>
+                <p><strong>Адрес:</strong> <?=$aVal['address']?></p>
                 <p>
                     <strong>Телефон:</strong> <?=$aVal['phone']?$aVal['phone']:'не указан'?>;
                     <strong>Адрес в интернете:</strong> <?=$aVal['web']?'<a href="http://'.$aVal['web'].'" target="_blank">'.$aVal['web'].'</a>':'не указан'?>;
@@ -47,7 +47,6 @@
                 <div class="form-group">
                     <label for="address">Адрес</label>
                     <textarea class="form-control" required="required" id="address" name="address" placeholder="Адрес"></textarea>
-                    <p class="help-block">название города Челябинск не вводить</p>
                 </div>
                 <div class="form-group">
                     <label for="map">Координаты для карты</label>
