@@ -37,7 +37,7 @@
     <meta name="msapplication-TileImage" content="<?=$path?>/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     
-    <meta name="description" content="Самое лучшее и свежее крафтовое пиво в Челябинске, тел.: +7(912)774-94-24, г. Челябинск, ул. Солнечная, д. 6-в">
+    <meta name="description" content="Самое лучшее и свежее крафтовое пиво в Челябинске, тел.: +7(912)774-94-24, г. Челябинск">
     <link rel="image_src" href="<?=$path?>/img/photo.jpg" />
 </head>
 <body>
@@ -56,8 +56,7 @@
                 <div class="addthis_toolbox addthis_default_style addthis_16x16_style b-addthis" 
                     addthis:url="http://<?=$_SERVER['HTTP_HOST']?>/"
                     addthis:description="Самое лучшее и свежее крафтовое пиво в Челябинске
-                    тел.: +7(912)774-94-24
-                    г. Челябинск, ул. Солнечная, д. 6-в"
+                    тел.: +7(912)774-94-24, г. Челябинск"
                     addthis:image="<?=$path?>/img/photo.jpg"
                     addthis:title="Brauwelt Brewery">
                     <a class="addthis_button_vk"></a>
@@ -71,7 +70,6 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Заказ продукции</a></li>
                     <li><a href="/locations">Места продаж</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal_map">Схема проезда</a></li>
                     <? if ($aData) :?>
                         <li><a href="#" data-toggle="modal" data-target="#modal_send">В корзину</a></li>
                     <? endif;?>
@@ -88,7 +86,7 @@
                 +7(912)774-94-24<br />
                 
                 ПИВОВАРНЯ БРАУВЕЛЬТ<br />
-                <small>г. Челябинск,<br /> ул. Солнечная, д. 6-в</small>
+                <small>г. Челябинск</small>
             </div>
             <div class="b-promo hidden-xs hidden-sm">
                 <p>Cпециальная линейка сортов пивоварни Brauwelt сварена в ограниченном количестве для истинных ценителей пива</p>
@@ -108,8 +106,7 @@
                     <div class="addthis_toolbox addthis_default_style addthis_32x32_style" 
                         addthis:url="http://<?=$_SERVER['HTTP_HOST']?>/"
                         addthis:description="Самое лучшее и свежее крафтовое пиво в Челябинске
-                        тел.: +7(912)774-94-24
-                        г. Челябинск, ул. Солнечная, д. 6-в"
+                        тел.: +7(912)774-94-24, г. Челябинск"
                         addthis:image="<?=$path?>/img/photo.jpg"
                         addthis:title="Brauwelt Brewery">
                         <a class="addthis_button_vk"></a>
@@ -121,7 +118,6 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     2015 &copy; Brauwelt Brewery &mdash; крафтовое пиво в Челябинске<br />
-                    г. Челябинск, ул. Солнечная, д. 6-в <br />
                     <i class="fa fa-envelope"></i>&nbsp; <a href="mailto:79127749424%40ya.ru">79127749424@ya.ru</a><br />
                     <i class="fa fa-phone-square"></i>&nbsp; +7(912)774-94-24<br />
                 </div>
@@ -129,6 +125,7 @@
         </footer>
     </div>
     
+    <?/*
     <div class="modal fade" id="modal_map" tabindex="-1" role="dialog" aria-labelledby="modal_map_label">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -147,6 +144,7 @@
             </div>
         </div>
     </div>
+    */?>
     
     <? include 'cart.tpl.php';?>
     
